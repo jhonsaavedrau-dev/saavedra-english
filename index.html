@@ -277,6 +277,53 @@ em.cl{font-style:normal;color:var(--azul);font-weight:800}
 .dia-act li b{font-weight:700}
 .dia-act li em{font-style:normal;color:var(--suave);display:block;font-size:13px}
 .compartir{display:grid;gap:8px;margin:6px 0 18px}
+
+/* material de la unidad */
+.material{margin-top:22px;display:grid;gap:12px}
+.mat-h{font-size:22px}
+.mat-card{background:var(--carta);border:2px solid var(--linea);border-radius:20px;padding:14px;display:grid;gap:12px}
+.mat-cab{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}
+.mat-cab img{width:48px;height:48px;object-fit:contain}
+.mat-cab b{display:block;font-size:17px}
+.mat-cab span{font-size:13px;color:var(--suave)}
+.mat-lista{display:grid;gap:8px}
+.mat-clase{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;text-align:left;background:var(--fondo);border:2px solid transparent;border-radius:14px;padding:10px 12px}
+.mat-clase:hover{border-color:var(--lila)}
+.mat-clase .play{width:44px;height:44px;border-radius:50%;background:var(--lila);color:var(--sobre);display:grid;place-items:center;font-size:16px;box-shadow:0 3px 0 var(--lila-o)}
+.mat-clase b{display:block;font-size:15px}
+.mat-clase i{font-style:normal;font-size:12px;color:var(--suave);font-weight:700}
+.mat-btns{display:flex;gap:8px;flex-wrap:wrap}
+.mat-btns a.btn{text-decoration:none;display:inline-block}
+.mat-pags{display:flex;flex-wrap:wrap;gap:6px}
+.pg{display:inline-flex;align-items:center;gap:6px;background:var(--fondo);border-radius:999px;padding:4px 10px 4px 4px;font-size:13px;font-weight:700}
+.pg b{background:var(--azul);color:var(--sobre);border-radius:999px;padding:3px 8px;font:500 12px/1.2 var(--f-mono)}
+/* visor */
+.visor{width:100%;max-width:1100px;margin:0 auto;border-radius:16px;box-shadow:0 10px 30px rgba(20,24,40,.18);background:#fff}
+.visor:fullscreen{display:grid;place-items:center;background:#12142B;max-width:none;border-radius:0}
+.visor:fullscreen .sd{width:min(100vw,177.7vh)}
+.visor-nav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:16px 0 24px}
+/* mini-clase */
+.mc-pantalla{min-height:320px;display:grid}
+.mc{border-radius:24px;padding:22px;display:grid;gap:14px;align-content:center;position:relative;overflow:hidden;animation:entrar .45s cubic-bezier(.3,1.4,.5,1)}
+.mc img{width:96px;height:96px;object-fit:contain}
+.mc h2{font-size:clamp(26px,6vw,40px)}
+.mc .eti{opacity:.85}
+.mc-azul{background:var(--azul);color:var(--sobre)}.mc-azul .eti{color:var(--sobre)}
+.mc-lila{background:var(--lila);color:var(--sobre)}.mc-lila .eti{color:var(--sobre)}
+.mc-sol{background:var(--sol-t)}.mc-menta{background:var(--menta-t)}
+.mc-blanco{background:var(--carta);border:2px solid var(--linea)}
+.mc-g{font:700 clamp(19px,4vw,24px)/1.45 var(--f-tx)}
+.mc-en{font:800 clamp(24px,5.4vw,34px)/1.3 var(--f-tx)}
+.mc-es{font:600 18px/1.4 var(--f-tx);color:var(--menta-o);opacity:0;transition:opacity .4s}
+.mc-mal{font:700 clamp(20px,4.4vw,26px)/1.35 var(--f-tx);color:var(--rojo);text-decoration:line-through;text-decoration-thickness:3px}
+.mc-bien{font:800 clamp(20px,4.4vw,26px)/1.35 var(--f-tx);color:var(--menta-o);opacity:0;transform:translateY(8px);transition:all .4s}
+.mc-porque{font-size:16px;color:var(--suave);opacity:0;transition:opacity .4s}
+.mc .ver{opacity:1;transform:none}
+.mc .forma div{transition:background .3s,border-color .3s}
+.mc .forma div.activa{border-color:var(--azul);background:var(--azul-t)}
+.mc-sub{text-align:center;font-size:15px;color:var(--suave);min-height:3em;margin:14px 6px 8px;font-weight:600}
+.mc-ctrl{display:flex;justify-content:center;gap:10px;margin-bottom:24px}
+.mc-play{min-width:160px}
 /* barra inferior */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--carta);border-top:2px solid var(--linea);display:flex;justify-content:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .tab{flex:0 1 150px;position:relative;background:transparent;border:2px solid transparent;border-radius:14px;padding:6px;display:grid;justify-items:center;gap:2px;font-size:13px;font-weight:800;color:var(--suave)}
@@ -413,6 +460,8 @@ mark{background:var(--sol-t);color:inherit;border-radius:6px;padding:0 .2em}
 <script src="vocab-extra.js"></script>
 <script src="audio/indice.js"></script>
 <script src="visuales.js"></script>
+<script src="paginas.js"></script>
+<script src="material.js"></script>
 <script>
 (function(){
 "use strict";
@@ -524,10 +573,12 @@ function vistaUnidad(n){
     if(p[0]==="parejas"&&up.reto)est="✓ "+up.reto+" s";
     h+='<button class="paso'+(hecho?' hecho':'')+(es?' siguiente':'')+'" data-p="'+p[0]+'"><img src="'+IMG(p[3])+'" alt=""><span><b>'+p[1]+'</b><span class="d">'+p[2]+'</span></span><span class="est'+(!hecho&&!es?' xp':'')+'">'+est+'</span></button>'});
   h+='</div>'+(ne?'<div class="aviso-err"><span>Tienes '+ne+(ne===1?' error':' errores')+' de esta unidad por corregir</span><button class="btn rojo" id="repErr">Corregir</button></div>':'');
+  h+=htmlMaterial(n);
   $("app").innerHTML=h;
   $("volver").onclick=()=>{UNI=null;render();scrollTo(0,0)};
   document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>abrir(n,b.dataset.p));
   if($("repErr"))$("repErr").onclick=()=>abrirErrores(n);
+  engancharMaterial(n);
 }
 
 /* ---------- Mis errores ---------- */
@@ -592,13 +643,88 @@ function textoResumen(){
   const dom=U.filter(u=>dominio(u.n)>=80).map(u=>u.n);
   return "*Resumen de estudio · Interchange 3*\nEsta semana: "+fmtMin(mSem)+" · racha "+P.racha+" días · "+P.xp+" XP\n"+(dom.length?"Unidades dominadas: "+dom.join(", ")+"\n":"")+"Errores por corregir: "+nErr()+"\n\n"+(lineas.join("\n\n")||"Sin actividad esta semana.");
 }
+
+/* ---------- Material de la unidad: libro, diapositivas y mini-clases ---------- */
+(function(){const st=document.createElement("style");st.textContent=window.cssDiapos||"";document.head.appendChild(st)})();
+function htmlMaterial(n){
+  const u=uni(n),pag=(window.PAGINAS||{})[n]||[],vistas=(UP(n).clases||[]);
+  return '<section class="material"><h2 class="mat-h">Material de la unidad</h2>'+
+   '<div class="mat-card"><div class="mat-cab"><img src="'+IMG("n-gram")+'" alt=""><div><b>Mini-clases en video</b><span>Explicación narrada y animada de cada tema</span></div></div><div class="mat-lista">'+
+   u.gram.map((g,i)=>'<button class="mat-clase" data-clase="'+i+'"><span class="play">▶</span><span><b>'+esc(g.t)+'</b><i>'+(vistas.includes(i)?'✓ Vista':'Unos 2 minutos')+'</i></span></button>').join("")+'</div></div>'+
+   '<div class="mat-card"><div class="mat-cab"><img src="'+IMG("n-voc")+'" alt=""><div><b>Diapositivas</b><span>'+window.diaposUnidad(n).length+' diapositivas con todo el tema</span></div></div><div class="mat-btns"><button class="btn" id="verDiapos">Ver diapositivas</button><a class="btn sec" href="material/unidad-'+String(n).padStart(2,"0")+'.pdf" target="_blank" rel="noopener">Descargar PDF</a></div></div>'+
+   '<div class="mat-card"><div class="mat-cab"><img src="'+IMG("n-examen")+'" alt=""><div><b>En tu libro</b><span>Interchange 3 · páginas '+esc(u.pag)+'</span></div></div><div class="mat-pags">'+
+   pag.map(p=>'<span class="pg"><b>'+esc(p[1])+'</b>'+esc(p[0])+'</span>').join("")+'</div></div></section>';
+}
+function engancharMaterial(n){
+  document.querySelectorAll("[data-clase]").forEach(b=>b.onclick=()=>abrirClase(n,+b.dataset.clase));
+  const vd=$("verDiapos");if(vd)vd.onclick=()=>abrirDiapos(n);
+}
+/* visor de diapositivas */
+function abrirDiapos(n){
+  const ds=window.diaposUnidad(n);let i=0;L={tipo:"diapos",n};abrirLec();
+  const pinta=()=>{$("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round((i+1)/ds.length*100)+'%"></i></span><span class="cron">'+(i+1)+'/'+ds.length+'</span></div><div class="visor entra" id="visor">'+window.dibujarDiapo(ds[i])+'</div><div class="visor-nav"><button class="btn sec" id="dA"'+(i?'':' disabled')+'>← Anterior</button><button class="btn sec" id="dF">Pantalla completa</button><button class="btn" id="dS">'+(i<ds.length-1?'Siguiente →':'Terminar')+'</button></div>';
+    $("lx").onclick=salir;$("dA").onclick=()=>{if(i){i--;pinta()}};$("dS").onclick=()=>{if(i<ds.length-1){i++;pinta()}else salir()};
+    $("dF").onclick=()=>{const v=$("visor");try{(v.requestFullscreen||v.webkitRequestFullscreen).call(v)}catch(e){}};
+    let x0=null;const v=$("visor");v.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});v.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(dx<-40&&i<ds.length-1){i++;pinta()}else if(dx>40&&i){i--;pinta()}x0=null})};
+  L.tecla=ev=>{if(ev.key==="ArrowRight"&&i<ds.length-1){i++;pinta()}if(ev.key==="ArrowLeft"&&i){i--;pinta()}};document.addEventListener("keydown",L.tecla);
+  pinta();
+}
+/* reproductor de mini-clase: escenas animadas con narración */
+let MC=null;
+function reproducirVoz(lang,t,fin){
+  const f=(window.AUDIO||{})[lang==="es"?"es|"+t:t];
+  if(f){const a=new Audio("audio/"+f);audioAct=a;a.onended=()=>{audioAct=null;fin()};a.play().catch(()=>{audioAct=null;ttsLang(lang,t,fin)});return}
+  ttsLang(lang,t,fin);
+}
+function ttsLang(lang,t,fin){try{const u=new SpeechSynthesisUtterance(t);u.lang=lang==="es"?"es-CO":"en-US";if(lang==="en"&&vozEN)u.voice=vozEN;u.onend=fin;u.onerror=fin;speechSynthesis.speak(u)}catch(e){setTimeout(fin,1500)}}
+function abrirClase(n,g){
+  callar();MC={n,g,esc:window.guionClase(n,g),i:0,j:0,on:false,token:0};L={tipo:"clase",n};abrirLec();pintaClase();
+}
+function escenaHTML(s,j){
+  const vis=s.tipo==="formula"&&s.vis?visual(s.vis):"";
+  if(s.tipo==="titulo")return '<div class="mc mc-azul"><img src="'+IMG("mz-estudia")+'" alt=""><span class="eti">'+esc(s.sub)+'</span><h2>'+esc(s.titulo)+'</h2></div>';
+  if(s.tipo==="escena")return '<div class="mc mc-lila"><span class="eti">Imagina</span><p class="mc-g">'+esc(s.texto)+'</p></div>';
+  if(s.tipo==="formula")return '<div class="mc mc-blanco">'+vis+(s.formula?'<div class="formula"><span class="eti">La fórmula</span><b>'+esc(s.formula)+'</b></div>':'')+'<div class="forma">'+s.tabla.map((f,k)=>'<div class="'+(k===j-1?'activa':'')+'"><span class="k">'+esc(f[0])+'</span><span class="v">'+resaltar(f[1])+'</span></div>').join("")+'</div></div>';
+  if(s.tipo==="ejemplo")return '<div class="mc mc-blanco"><span class="eti">Ejemplo</span><p class="mc-en">'+resaltar(s.en)+'</p><p class="mc-es'+(j>=1?' ver':'')+'">'+esc(s.es)+'</p></div>';
+  if(s.tipo==="espanol")return '<div class="mc mc-sol"><span class="eti">Ojo con el español</span><p class="mc-g">'+esc(s.texto)+'</p></div>';
+  if(s.tipo==="error")return '<div class="mc mc-blanco"><span class="eti">Error típico</span><p class="mc-mal">'+esc(s.mal)+'</p><p class="mc-bien'+(j>=3?' ver':'')+'">✓ '+esc(s.bien)+'</p><p class="mc-porque'+(j>=4?' ver':'')+'">'+esc(s.porque)+'</p></div>';
+  return '<div class="mc mc-menta"><img src="'+IMG("mz-pulgar")+'" alt=""><span class="eti">Truco</span><p class="mc-g">'+esc(s.texto)+'</p></div>';
+}
+function pintaClase(){
+  const s=MC.esc[MC.i],v=s.voz[Math.min(MC.j,s.voz.length-1)];
+  $("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round(MC.i/MC.esc.length*100)+'%"></i></span><span class="cron">'+(MC.i+1)+'/'+MC.esc.length+'</span></div>'+
+   '<div class="mc-pantalla" id="mcP">'+escenaHTML(s,MC.j)+'</div><p class="mc-sub" id="mcSub">'+(MC.on?esc(v[1]):'Toca ▶ para empezar la mini-clase')+'</p>'+
+   '<div class="mc-ctrl"><button class="btn sec" id="mcA" aria-label="Escena anterior"'+(MC.i?'':' disabled')+'>⏮</button><button class="btn lila mc-play" id="mcPlay">'+(MC.on?'❚❚ Pausa':'▶ '+(MC.i||MC.j?'Seguir':'Reproducir'))+'</button><button class="btn sec" id="mcS" aria-label="Escena siguiente"'+(MC.i<MC.esc.length-1?'':' disabled')+'>⏭</button></div>';
+  $("lx").onclick=()=>{MC.on=false;MC.token++;salir()};
+  $("mcPlay").onclick=()=>{if(MC.on){MC.on=false;MC.token++;callar();pintaClase()}else{MC.on=true;pintaClase();hablarEscena()}};
+  $("mcA").onclick=()=>irEscena(MC.i-1);$("mcS").onclick=()=>irEscena(MC.i+1);
+  engancharVis();
+}
+function irEscena(i){MC.token++;callar();MC.i=Math.max(0,Math.min(MC.esc.length-1,i));MC.j=0;pintaClase();if(MC.on)hablarEscena()}
+function hablarEscena(){
+  const tk=++MC.token,s=MC.esc[MC.i];
+  if(MC.j>=s.voz.length){
+    if(MC.i<MC.esc.length-1){setTimeout(()=>{if(tk!==MC.token||!MC.on)return;MC.i++;MC.j=0;pintaClase();hablarEscena()},700)}
+    else finClase();
+    return;
+  }
+  const [lang,t]=s.voz[MC.j];
+  const sub=$("mcSub");if(sub)sub.textContent=t;
+  if(MC.j>0){const p=$("mcP");if(p){p.innerHTML=escenaHTML(s,MC.j);engancharVis()}}
+  reproducirVoz(lang,t,()=>{if(tk!==MC.token||!MC.on)return;MC.j++;setTimeout(()=>{if(tk!==MC.token||!MC.on)return;hablarEscena()},250)});
+}
+function finClase(){
+  MC.on=false;const up=UP(MC.n);up.clases=up.clases||[];const nueva=!up.clases.includes(MC.g);if(nueva)up.clases.push(MC.g);guardar();
+  ganar(nueva?5:2);L={tipo:"clase",n:MC.n};
+  pantallaFinal({mz:"mz-celebra",t:"¡Mini-clase terminada!",p:"Ahora haz «Entiende la gramática» para practicarlo con el mini-chequeo.",chips:[["Tema",MC.g+1+" de 2","var(--lila)"],["XP","+"+(nueva?5:2),"var(--sol-o)"]],confeti:true});
+}
 /* ---------- lección: armazón ---------- */
 let L=null,Rh=null;
 const icoX='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 const icoOir='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
 function marco(prog,cuerpo,pie){$("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round(prog*100)+'%"></i></span></div><div class="lec-cuerpo">'+cuerpo+'</div>'+(pie||'');$("lx").onclick=salir}
 function abrirLec(){$("lec").hidden=false;document.body.style.overflow="hidden";$("lec").scrollTop=0}
-function salir(){clearInterval(L&&L.cron);clearInterval(Rh);callar();$("lec").hidden=true;document.body.style.overflow="";L=null;render()}
+function salir(){if(MC){MC.on=false;MC.token++}if(L&&L.tecla)document.removeEventListener("keydown",L.tecla);clearInterval(L&&L.cron);clearInterval(Rh);callar();$("lec").hidden=true;document.body.style.overflow="";L=null;render()}
 function avanzarSig(n){if(PASOS.every(p=>pasoHecho(n,p[0]))&&P.sig<=n){P.sig=Math.min(16,n+1);guardar()}}
 function pantallaFinal(o){
   anotarAct(o.t,o.chips);
