@@ -164,6 +164,48 @@ p{margin:0}
 .resumen-ins{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;margin-bottom:16px}
 .resumen-ins img{width:72px;height:72px;object-fit:contain}
 
+
+/* lección de gramática */
+.lec-cuerpo .forma div{background:var(--carta);border:2px solid var(--linea)}
+.lec-paso{display:grid;gap:4px}
+.lec-paso h2{font-size:clamp(22px,4.6vw,30px)}
+.escena{background:var(--lila-t);border-radius:16px;padding:14px 16px;display:grid;gap:4px}
+.escena p{font-size:17px;font-weight:600}
+.formula{background:var(--azul);color:var(--sobre);border-radius:18px;padding:16px 18px;display:grid;gap:6px}
+.formula .eti{color:var(--sobre);opacity:.85}
+.formula b{font:800 clamp(17px,3.6vw,21px)/1.45 var(--f-tx)}
+em.cl{font-style:normal;color:var(--azul);font-weight:800}
+.ejemplos{display:grid;gap:10px}
+.ejm{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;background:var(--carta);border:2px solid var(--linea);border-radius:16px;padding:12px}
+.oir-mini{width:40px;height:40px;border-radius:12px;border:0;background:var(--azul-t);color:var(--azul);display:grid;place-items:center}
+.oir-mini svg{width:20px;height:20px}
+.ejm-tx{background:none;border:0;padding:4px 0;text-align:left;display:grid;gap:6px}
+.ejm-tx b{font-size:18px;line-height:1.4;font-weight:700}
+.ejm-tx .tr{font-size:15px;color:var(--menta-o);font-weight:600}
+.vs{background:var(--sol-t);border-radius:16px;padding:14px 16px;display:grid;gap:6px}
+.vs p{font-size:16px;line-height:1.55}
+.errores{display:grid;gap:10px}
+.errt{background:var(--carta);border:2px solid var(--linea);border-radius:16px;padding:12px 14px;display:grid;gap:6px}
+.errt .mal{color:var(--rojo);text-decoration:line-through;text-decoration-thickness:2px;font-weight:700}
+.errt .bien{color:var(--menta-o);font-weight:800}
+.errt .bien::before{content:"✓ ";}
+.errt .porque{font-size:14px;color:var(--suave)}
+.truco{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--menta-t);border-radius:16px;padding:12px 14px}
+.truco img{width:64px;height:64px;object-fit:contain}
+.truco p{font-weight:700;font-size:16px}
+/* juego de vocabulario */
+.ronda{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--carta);border:2px solid var(--linea);border-radius:16px;padding:10px 12px}
+.ronda .rn{width:42px;height:42px;border-radius:12px;background:var(--lila);color:var(--sobre);display:grid;place-items:center;font:800 15px/1 var(--f-tit)}
+.ronda b{display:block;font-size:16px}
+.ronda div span{font-size:13px;color:var(--suave)}
+.ronda .pts{font:800 14px/1 var(--f-mono);background:var(--sol-t);border-radius:999px;padding:7px 10px;white-space:nowrap}
+.pron{font:500 14px/1.3 var(--f-mono);color:var(--suave);background:var(--fondo);border-radius:999px;padding:5px 12px}
+.tip{display:block;margin-top:6px;font-size:14px;line-height:1.45;background:var(--carta);border-radius:12px;padding:10px 12px;text-align:left}
+.tip i{display:block;font-style:normal;font:800 11px/1 var(--f-tx);text-transform:uppercase;letter-spacing:.06em;color:var(--menta-o);margin-bottom:4px}
+.escuchar-grande{justify-self:center;align-self:center;display:grid;justify-items:center;gap:8px;background:var(--azul);color:var(--sobre);border:0;border-radius:24px;padding:22px 30px;box-shadow:0 5px 0 var(--azul-o);font-weight:800}
+.escuchar-grande svg{width:48px;height:48px}
+.escuchar-grande:active{transform:translateY(4px);box-shadow:none}
+.pista-es{font-size:15px;color:var(--suave);margin-top:-8px}
 /* barra inferior */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--carta);border-top:2px solid var(--linea);display:flex;justify-content:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .tab{flex:0 1 150px;position:relative;background:transparent;border:2px solid transparent;border-radius:14px;padding:6px;display:grid;justify-items:center;gap:2px;font-size:13px;font-weight:800;color:var(--suave)}
@@ -224,7 +266,7 @@ mark{background:var(--sol-t);color:inherit;border-radius:6px;padding:0 .2em}
 .ojo{background:var(--rojo-t);border-radius:14px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start}
 .ojo b{background:var(--rojo);color:var(--sobre);border-radius:8px;padding:3px 8px;font-size:12px;letter-spacing:.06em}
 .fc{display:block;perspective:1000px;background:none;border:0;padding:0;width:100%;text-align:left}
-.fc-in{display:block;position:relative;width:100%;min-height:260px;transition:transform .55s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.fc-in{display:block;position:relative;width:100%;min-height:300px;transition:transform .55s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
 .fc.vuelta .fc-in{transform:rotateY(180deg)}
 .cara{position:absolute;inset:0;border-radius:24px;padding:24px;display:grid;align-content:center;justify-items:center;gap:12px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .frente{background:var(--carta);border:2px solid var(--linea);box-shadow:0 6px 0 var(--linea)}
@@ -294,6 +336,9 @@ mark{background:var(--sol-t);color:inherit;border-radius:6px;padding:0 .2em}
 <div class="toast" id="toast" hidden></div>
 
 <script src="unidades.js"></script>
+<script src="explicaciones.js"></script>
+<script src="explicaciones-2.js"></script>
+<script src="vocab-extra.js"></script>
 <script>
 (function(){
 "use strict";
@@ -441,21 +486,100 @@ function pantallaFinal(o){
 function cierreDominio(n,antes){const d=dominio(n);if(antes<80&&d>=80){setTimeout(()=>{confeti();toast("mz-campeon","¡Dominaste la unidad "+n+"!")},500)}}
 function abrir(n,tipo){const u=uni(n);L={u,n,tipo,antes:dominio(n)};abrirLec();({aprende,palabras,practica,parejas,habla})[tipo]()}
 
+/* ---------- Aprende: lección en pantallas (para qué sirve, fórmula, ejemplos, trampas, mini-chequeo) ---------- */
+const PANT=["Para qué sirve","La fórmula","Ejemplos","Trampas y errores","Mini-chequeo"];
 function aprende(){
-  const u=L.u;L.k=L.k||0;const g=u.gram[L.k];
-  marco(L.k/u.gram.length,'<div class="consejo entra"><img src="'+IMG("mz-estudia")+'" alt=""><div class="bocadillo"><b>'+(L.k===0?'Te lo explico en español':'Segunda parte')+'</b><span>Así lo piden en el examen. Fíjate en el error típico.</span></div></div><article class="tarjeta entra"><span class="eti">Gramática '+(L.k+1)+' de '+u.gram.length+'</span><h2>'+esc(g.t)+'</h2><p class="idea">'+esc(g.idea)+'</p><div class="forma">'+g.forma.map(f=>'<div><span class="k">'+esc(f[0])+'</span><span class="v">'+esc(f[1])+'</span></div>').join("")+'</div><div class="ojo"><b>OJO</b><span>'+esc(g.ojo)+'</span></div></article>',
-   '<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="sig">'+(L.k<u.gram.length-1?'Siguiente':'Entendido')+'</button></div></div>');
-  $("sig").onclick=()=>{SFX.tap();if(L.k<u.gram.length-1){L.k++;aprende();$("lec").scrollTop=0}else{UP(L.n).a=true;avanzarSig(L.n);ganar(10);pantallaFinal({mz:"mz-pulgar",t:"Explicación lista",p:"Sigue con el vocabulario de la unidad.",chips:[["XP","+10","var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]]});cierreDominio(L.n,L.antes)}};
+  const u=L.u,EX=(window.EXPL||{})[L.n]||[];
+  if(L.g==null){L.g=0;L.s=0;L.cq=0;L.ok=0}
+  const g=u.gram[L.g],e=EX[L.g]||{};
+  const total=u.gram.length*PANT.length,pos=L.g*PANT.length+L.s;
+  const cab='<div class="lec-paso"><span class="eti">Tema '+(L.g+1)+' de '+u.gram.length+' · '+PANT[L.s]+'</span><h2>'+esc(g.t)+'</h2></div>';
+  let cuerpo="",pie='<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="sig">Siguiente</button></div></div>';
+  if(L.s===0){
+    cuerpo=cab+'<div class="consejo entra"><img src="'+IMG("mz-estudia")+'" alt=""><div class="bocadillo"><b>¿Para qué sirve?</b><span>'+esc(e.para||g.idea)+'</span></div></div>'+(e.escena?'<div class="escena entra"><span class="eti">Imagina esta situación</span><p>'+esc(e.escena)+'</p></div>':'')+'<p class="idea">'+esc(g.idea)+'</p>';
+  }else if(L.s===1){
+    cuerpo=cab+(e.formula?'<div class="formula entra"><span class="eti">La fórmula</span><b>'+esc(e.formula)+'</b></div>':'')+'<div class="forma entra">'+(e.tabla||g.forma).map(f=>'<div><span class="k">'+esc(f[0])+'</span><span class="v">'+resaltar(f[1])+'</span></div>').join("")+'</div>';
+  }else if(L.s===2){
+    const ej=e.ejemplos||g.forma.map(f=>[f[1],""]);
+    cuerpo=cab+'<p class="toca">Toca cada ejemplo para ver la traducción. Toca el parlante para escucharlo.</p><div class="ejemplos">'+ej.map((x,i)=>'<div class="ejm entra" style="animation-delay:'+(i*60)+'ms"><button class="oir-mini" data-oir="'+i+'" aria-label="Escuchar">'+icoOir+'</button><button class="ejm-tx" data-tr="'+i+'"><b>'+resaltar(x[0])+'</b><span class="tr" hidden>'+esc(x[1])+'</span></button></div>').join("")+'</div>';
+  }else if(L.s===3){
+    cuerpo=cab+(e.espanol?'<div class="vs entra"><span class="eti">Inglés vs. español</span><p>'+esc(e.espanol)+'</p></div>':'')+'<span class="eti">Errores típicos</span><div class="errores">'+(e.errores||[[g.ojo,"",""]]).map(x=>'<div class="errt entra"><span class="mal">'+esc(x[0])+'</span>'+(x[1]?'<span class="bien">'+esc(x[1])+'</span>':'')+(x[2]?'<span class="porque">'+esc(x[2])+'</span>':'')+'</div>').join("")+'</div>'+(e.truco?'<div class="truco entra"><img src="'+IMG("mz-pulgar")+'" alt=""><div><span class="eti">Truco para recordarlo</span><p>'+esc(e.truco)+'</p></div></div>':'');
+  }else{
+    const cq=(e.chequeo||[])[L.cq];
+    if(!cq){siguientePantalla();return}
+    if(!cq._o)cq._o=mezclar(cq.o.map((t,j)=>({t,ok:j===cq.a})));
+    cuerpo=cab+'<span class="eti">Pregunta '+(L.cq+1)+' de '+e.chequeo.length+'</span><p class="preg">'+esc(cq.q).replace("___",'<mark>___</mark>')+'</p><div class="ops">'+cq._o.map((x,j)=>'<button class="op" data-j="'+j+'"><span class="l">'+(j+1)+'</span>'+esc(x.t)+'</button>').join("")+'</div>';
+    pie=piePregunta.replace("Comprobar","Elige una respuesta");
+  }
+  marco(pos/total,cuerpo,pie);
+  if(L.s===2){const ej=e.ejemplos||[];document.querySelectorAll("[data-oir]").forEach(b=>b.onclick=()=>hablar((ej[+b.dataset.oir]||[])[0]||""));document.querySelectorAll("[data-tr]").forEach(b=>b.onclick=()=>{const t=b.querySelector(".tr");t.hidden=!t.hidden;SFX.tap()})}
+  if(L.s===4){
+    const cq=e.chequeo[L.cq];let hecho=false;
+    document.querySelectorAll(".op").forEach(b=>b.onclick=()=>{if(hecho)return;hecho=true;const j=+b.dataset.j,ok=cq._o[j].ok;
+      document.querySelectorAll(".op").forEach((x,k)=>{if(cq._o[k].ok)x.classList.add("bien");else if(k===j)x.classList.add("mal")});
+      if(ok)L.ok++;mostrar({ok,correcta:cq.o[cq.a]},{y:cq.y});
+      $("comp").onclick=()=>{L.cq++;if(L.cq>=e.chequeo.length){L.cq=0;siguientePantalla()}else aprende();$("lec").scrollTop=0}});
+    $("comp").disabled=true;return;
+  }
+  $("sig").onclick=()=>{SFX.tap();siguientePantalla();$("lec").scrollTop=0};
 }
+function siguientePantalla(){
+  const u=L.u;
+  if(L.s<PANT.length-1){L.s++;return aprende()}
+  if(L.g<u.gram.length-1){L.g++;L.s=0;L.cq=0;return aprende()}
+  UP(L.n).a=true;avanzarSig(L.n);ganar(10+L.ok*2);
+  pantallaFinal({mz:"mz-pulgar",t:"¡Tema entendido!",p:"Ya sabes para qué sirve, cómo se forma y qué errores evitar. Ahora el vocabulario.",chips:[["Chequeo",L.ok+"/"+u.gram.reduce((a,g,i)=>a+(((window.EXPL||{})[L.n]||[])[i]||{chequeo:[]}).chequeo.length,0),"var(--menta)"],["XP","+"+(10+L.ok*2),"var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]],confeti:true});
+  cierreDominio(L.n,L.antes);
+}
+/* marca en azul las palabras clave de la estructura */
+const CLAVE=/\b(who|that|it|when|is being|are being|has been|have been|being|been|by|due to|because of|because|as a result of|through|to|rather|prefer|not|than|as|had|have|has|would|could|should|must|might|may|will|was|were|if|since|for|ago|until|once|get|keep|need|managed|able|supposed|expected|custom|acceptable|isn't|don't|didn't|can't|shouldn't|couldn't)\b/gi;
+function resaltar(t){return esc(t).replace(CLAVE,'<em class="cl">$1</em>')}
+
+/* ---------- Vocabulario: juego en 3 rondas (descubre, escucha y elige, completa la frase) ---------- */
 function palabras(){
-  const u=L.u;if(!L.cola){L.cola=mezclar(u.voc.map((w,i)=>i));L.vistas=0}
-  const total=u.voc.length,w=u.voc[L.cola[0]];
-  marco(L.vistas/total,'<span class="eti">Palabra '+Math.min(L.vistas+1,total)+' de '+total+'</span><button class="fc entra" id="fc"><span class="fc-in"><span class="cara frente"><b>'+esc(w[0])+'</b><span class="oir" id="oir">'+icoOir+'Escuchar</span><span class="toca">Toca la tarjeta para ver el significado</span></span><span class="cara atras"><b>'+esc(w[1])+'</b><em>'+esc(w[2])+'</em></span></span></button>',
-   '<div class="pie-lec"><div class="in solo" style="grid-template-columns:1fr 1fr"><button class="btn sec" id="rep">Repasar</button><button class="btn menta" id="se">La sé</button></div></div>');
+  const u=L.u;
+  if(!L.r){L.r=1;L.cola=mezclar(u.voc.map((w,i)=>i));L.vistas=0;L.pts=0;L.combo=0;L.maxCombo=0;L.aciertos=0;L.intentos=0}
+  if(L.r===1)return descubre();if(L.r===2)return escucha();if(L.r===3)return completa();
+  finVocab();
+}
+function cabRonda(n,titulo,desc){return '<div class="ronda"><span class="rn">'+n+'/3</span><div><b>'+titulo+'</b><span>'+desc+'</span></div><span class="pts" id="pts">'+L.pts+' pts</span></div>'}
+function descubre(){
+  const u=L.u,total=u.voc.length,w=u.voc[L.cola[0]],x=(window.VOCX||{})[w[0]]||["",""];
+  marco(L.vistas/total/3,cabRonda(1,"Descubre","Escucha, mira la pronunciación y voltea la tarjeta")+'<span class="eti">Palabra '+Math.min(L.vistas+1,total)+' de '+total+'</span><button class="fc entra" id="fc"><span class="fc-in"><span class="cara frente"><b>'+esc(w[0])+'</b>'+(x[0]?'<span class="pron">'+esc(x[0])+'</span>':'')+'<span class="oir" id="oir">'+icoOir+'Escuchar</span><span class="toca">Toca para ver qué significa</span></span><span class="cara atras"><b>'+esc(w[1])+'</b><em>'+esc(w[2])+'</em>'+(x[1]?'<span class="tip"><i>Truco</i>'+esc(x[1])+'</span>':'')+'</span></span></button>',
+   '<div class="pie-lec"><div class="in solo" style="grid-template-columns:1fr 1fr"><button class="btn sec" id="rep">Otra vez luego</button><button class="btn menta" id="se">¡La tengo!</button></div></div>');
   const fc=$("fc");fc.onclick=ev=>{if(ev.target.closest("#oir")){hablar(w[0]+". "+w[2]);return}fc.classList.toggle("vuelta");SFX.tap()};
   setTimeout(()=>hablar(w[0]),250);
-  $("rep").onclick=()=>{L.cola.push(L.cola.shift());SFX.tap();palabras()};
-  $("se").onclick=()=>{L.cola.shift();L.vistas++;SFX.bien();if(!L.cola.length){UP(L.n).v=true;avanzarSig(L.n);ganar(10);pantallaFinal({mz:"mz-laptop",t:total+" palabras repasadas",p:"Ahora ponlas en práctica.",chips:[["XP","+10","var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]]});cierreDominio(L.n,L.antes)}else palabras()};
+  $("rep").onclick=()=>{L.cola.push(L.cola.shift());SFX.tap();descubre()};
+  $("se").onclick=()=>{L.cola.shift();L.vistas++;SFX.bien();if(!L.cola.length){L.r=2;L.lista=mezclar(u.voc).slice(0,6);L.p=0;transicion("Ronda 2: Escucha y elige","Vas a oír una palabra. Toca la que escuchaste.",palabras)}else descubre()};
+}
+function transicion(t,p,sig){marco((L.r-1)/3,'<div class="final"><img class="mz rebota" src="'+IMG(L.r===2?"mz-laptop":"mz-piensa")+'" alt=""><h2>'+esc(t)+'</h2><p>'+esc(p)+'</p></div>','<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="go">¡Vamos!</button></div></div>');SFX.fin();$("go").onclick=sig}
+function sumar(ok){L.intentos++;if(ok){L.aciertos++;L.combo++;L.maxCombo=Math.max(L.maxCombo,L.combo);L.pts+=10+(L.combo>=3?5:0)}else L.combo=0;const p=$("pts");if(p){p.textContent=L.pts+" pts";p.classList.remove("rebota");void p.offsetWidth;p.classList.add("rebota")}}
+function escucha(){
+  const u=L.u;if(L.p>=L.lista.length){L.r=3;L.lista=listaCompleta(u);L.p=0;return L.lista.length?transicion("Ronda 3: Completa la frase","Lee la frase y elige la palabra que falta.",palabras):(L.r=4,palabras())}
+  const w=L.lista[L.p],ops=mezclar([w].concat(mezclar(u.voc.filter(x=>x!==w)).slice(0,3)));let hecho=false;
+  marco(1/3+(L.p/L.lista.length)/3,cabRonda(2,"Escucha y elige","Toca la palabra que escuchas")+(L.combo>=3?'<span class="combo entra"><img src="'+IMG("i-racha")+'" alt="">'+L.combo+' seguidas</span>':'')+'<button class="escuchar-grande entra" id="play">'+icoOir+'<span>Escuchar otra vez</span></button><div class="ops">'+ops.map((x,j)=>'<button class="op" data-j="'+j+'"><span class="l">'+(j+1)+'</span>'+esc(x[0])+'</button>').join("")+'</div>',piePregunta.replace("Comprobar","Elige una palabra"));
+  $("comp").disabled=true;
+  const oir=()=>hablar(w[0]);setTimeout(oir,300);$("play").onclick=oir;
+  document.querySelectorAll(".op").forEach(b=>b.onclick=()=>{if(hecho)return;hecho=true;const j=+b.dataset.j,ok=ops[j]===w;
+    document.querySelectorAll(".op").forEach((x,k)=>{if(ops[k]===w)x.classList.add("bien");else if(k===j)x.classList.add("mal")});
+    sumar(ok);mostrar({ok,correcta:w[0]},{y:w[0]+" = "+w[1]});const c=$("comp");c.onclick=()=>{L.p++;escucha()}});
+}
+function listaCompleta(u){
+  return mezclar(u.voc).map(w=>{const pal=w[0].split(" "),re=new RegExp("\\b"+pal[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\w*"+(pal.length>1?"\\s+"+pal.slice(1).join("\\s+"):"")+"\\b","i");const m=w[2].match(re);return m?{w,frase:w[2].replace(m[0],"_____"),resp:m[0]}:null}).filter(Boolean).slice(0,6);
+}
+function completa(){
+  const u=L.u;if(L.p>=L.lista.length){L.r=4;return palabras()}
+  const it=L.lista[L.p],otros=mezclar(u.voc.filter(x=>x!==it.w)).slice(0,2),ops=mezclar([{t:it.resp,ok:true}].concat(otros.map(o=>({t:o[0],ok:false}))));let hecho=false;
+  marco(2/3+(L.p/L.lista.length)/3,cabRonda(3,"Completa la frase","Elige la palabra que falta")+(L.combo>=3?'<span class="combo entra"><img src="'+IMG("i-racha")+'" alt="">'+L.combo+' seguidas</span>':'')+'<p class="preg">'+esc(it.frase).replace("_____",'<mark>_____</mark>')+'</p><p class="pista-es">Pista: '+esc(it.w[1])+'</p><div class="ops">'+ops.map((x,j)=>'<button class="op" data-j="'+j+'"><span class="l">'+(j+1)+'</span>'+esc(x.t)+'</button>').join("")+'</div>',piePregunta.replace("Comprobar","Elige una palabra"));
+  $("comp").disabled=true;
+  document.querySelectorAll(".op").forEach(b=>b.onclick=()=>{if(hecho)return;hecho=true;const j=+b.dataset.j,ok=ops[j].ok;
+    document.querySelectorAll(".op").forEach((x,k)=>{if(ops[k].ok)x.classList.add("bien");else if(k===j)x.classList.add("mal")});
+    sumar(ok);hablar(it.w[2]);mostrar({ok,correcta:it.resp},{y:it.w[2]});const c=$("comp");c.onclick=()=>{L.p++;completa()}});
+}
+function finVocab(){
+  const pct=L.intentos?L.aciertos/L.intentos:1,xp=10+Math.round(L.pts/10);UP(L.n).v=true;avanzarSig(L.n);ganar(xp);
+  pantallaFinal({mz:pct===1?"mz-amor":pct>=.7?"mz-celebra":"mz-piensa",t:pct===1?"¡Vocabulario perfecto!":pct>=.7?"¡Muy bien!":"Vas mejorando",p:pct>=.7?"Ya conoces las palabras de la unidad. Ahora úsalas en la práctica.":"Repite esta actividad otro día: así se quedan en la memoria.",chips:[["Puntos",L.pts,"var(--lila)"],["Aciertos",L.aciertos+"/"+L.intentos,"var(--menta)"],["Seguidas","x"+L.maxCombo,"var(--azul)"],["XP","+"+xp,"var(--sol-o)"]],confeti:pct>=.7});
+  cierreDominio(L.n,L.antes);
 }
 
 /* ---------- motor de preguntas ---------- */
