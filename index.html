@@ -299,12 +299,23 @@ em.cl{font-style:normal;color:var(--azul);font-weight:800}
 .pg b{background:var(--azul);color:var(--sobre);border-radius:999px;padding:3px 8px;font:500 12px/1.2 var(--f-mono)}
 /* visor */
 .visor{width:100%;max-width:1100px;margin:0 auto;border-radius:16px;box-shadow:0 10px 30px rgba(20,24,40,.18);background:#fff}
-.visor:fullscreen{display:grid;place-items:center;background:#12142B;max-width:none;border-radius:0}
-.visor:fullscreen .sd{width:min(100vw,177.7vh)}
+.visor{position:relative;overflow:hidden}
+.vz-sd{cursor:pointer}
+.vz-f,.vz-x,.vz-cont{display:none}
+.visor:fullscreen,.visor.pseudo{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#12142B;max-width:none;border-radius:0;box-shadow:none}
+.visor:fullscreen .vz-sd,.visor.pseudo .vz-sd{width:min(100vw,177.7vh)}
+.visor:fullscreen .vz-f,.visor.pseudo .vz-f{display:grid;place-items:center;position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#1A1C3A;font:800 34px/1 var(--f-tx);box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:2}
+.visor:fullscreen .vz-a,.visor.pseudo .vz-a{left:max(14px,env(safe-area-inset-left,0px))}
+.visor:fullscreen .vz-s,.visor.pseudo .vz-s{right:max(14px,env(safe-area-inset-right,0px))}
+.vz-f[disabled]{opacity:.25}
+@media (orientation:portrait){.visor:fullscreen .vz-f,.visor.pseudo .vz-f{top:auto;bottom:max(64px,calc(env(safe-area-inset-bottom,0px) + 56px));transform:none}}
+.visor:fullscreen .vz-cont,.visor.pseudo .vz-cont{display:block;position:absolute;bottom:max(12px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);color:#fff;font:500 13px/1 var(--f-mono);border-radius:999px;padding:7px 12px}
+.visor:fullscreen .vz-x,.visor.pseudo .vz-x{display:grid;place-items:center;position:absolute;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#1A1C3A;font:800 18px/1 var(--f-tx);z-index:2}
 .visor-nav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:16px 0 24px}
 /* mini-clase */
 .mc-pantalla{min-height:320px;display:grid}
-.mc{border-radius:24px;padding:22px;display:grid;gap:14px;align-content:center;position:relative;overflow:hidden;animation:entrar .45s cubic-bezier(.3,1.4,.5,1)}
+.mc{border-radius:24px;padding:22px;display:grid;gap:14px;align-content:center;position:relative;overflow:hidden}
+.mc.nueva{animation:entrar .45s cubic-bezier(.3,1.4,.5,1)}
 .mc img{width:96px;height:96px;object-fit:contain}
 .mc h2{font-size:clamp(26px,6vw,40px)}
 .mc .eti{opacity:.85}
@@ -668,11 +679,30 @@ function engancharMaterial(n){
 /* visor de diapositivas */
 function abrirDiapos(n){
   const ds=window.diaposUnidad(n);let i=0;L={tipo:"diapos",n};abrirLec();
-  const pinta=()=>{$("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round((i+1)/ds.length*100)+'%"></i></span><span class="cron">'+(i+1)+'/'+ds.length+'</span></div><div class="visor entra" id="visor">'+window.dibujarDiapo(ds[i])+'</div><div class="visor-nav"><button class="btn sec" id="dA"'+(i?'':' disabled')+'>← Anterior</button><button class="btn sec" id="dF">Pantalla completa</button><button class="btn" id="dS">'+(i<ds.length-1?'Siguiente →':'Terminar')+'</button></div>';
-    $("lx").onclick=salir;$("dA").onclick=()=>{if(i){i--;pinta()}};$("dS").onclick=()=>{if(i<ds.length-1){i++;pinta()}else salir()};
-    $("dF").onclick=()=>{const v=$("visor");try{(v.requestFullscreen||v.webkitRequestFullscreen).call(v)}catch(e){}};
-    let x0=null;const v=$("visor");v.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});v.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(dx<-40&&i<ds.length-1){i++;pinta()}else if(dx>40&&i){i--;pinta()}x0=null})};
-  L.tecla=ev=>{if(ev.key==="ArrowRight"&&i<ds.length-1){i++;pinta()}if(ev.key==="ArrowLeft"&&i){i--;pinta()}};document.addEventListener("keydown",L.tecla);
+  /* se arma una sola vez: al pasar de diapositiva solo cambia el contenido, así la pantalla completa no se pierde */
+  $("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i id="vzBar"></i></span><span class="cron" id="vzN"></span></div>'+
+   '<div class="visor" id="visor"><div id="vzSd" class="vz-sd"></div><button class="vz-f vz-a" id="vzA" aria-label="Anterior">‹</button><button class="vz-f vz-s" id="vzS" aria-label="Siguiente">›</button><span class="vz-cont" id="vzC"></span><button class="vz-x" id="vzX" aria-label="Salir de pantalla completa">✕</button></div>'+
+   '<div class="visor-nav"><button class="btn sec" id="dA">← Anterior</button><button class="btn sec" id="dF">Pantalla completa</button><button class="btn" id="dS">Siguiente →</button></div>';
+  const ir=k=>{if(k<0||k>=ds.length)return;i=k;pinta()};
+  function pinta(){
+    $("vzSd").innerHTML=window.dibujarDiapo(ds[i]);
+    $("vzBar").style.width=Math.round((i+1)/ds.length*100)+"%";$("vzN").textContent=(i+1)+"/"+ds.length;$("vzC").textContent=(i+1)+" / "+ds.length;
+    $("dA").disabled=i===0;$("vzA").disabled=i===0;$("vzS").disabled=i===ds.length-1;
+    $("dS").textContent=i<ds.length-1?"Siguiente →":"Terminar";
+  }
+  const pc=()=>document.fullscreenElement||document.webkitFullscreenElement;
+  $("lx").onclick=salir;
+  $("dA").onclick=()=>ir(i-1);$("vzA").onclick=e=>{e.stopPropagation();ir(i-1)};
+  $("dS").onclick=()=>{if(i<ds.length-1)ir(i+1);else salir()};$("vzS").onclick=e=>{e.stopPropagation();ir(i+1)};
+  $("dF").onclick=()=>{const v=$("visor");try{const f=v.requestFullscreen||v.webkitRequestFullscreen;const r=f&&f.call(v);if(r&&r.catch)r.catch(()=>v.classList.add("pseudo"));if(!f)v.classList.add("pseudo")}catch(e){v.classList.add("pseudo")}try{screen.orientation&&screen.orientation.lock&&screen.orientation.lock("landscape").catch(()=>{})}catch(e){}};
+  $("vzX").onclick=e=>{e.stopPropagation();const v=$("visor");v.classList.remove("pseudo");try{pc()&&(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(_){}};
+  /* tocar el lado derecho o izquierdo de la diapositiva también la pasa */
+  $("vzSd").onclick=e=>{const r=$("vzSd").getBoundingClientRect();if(e.clientX-r.left>r.width/2)ir(i+1);else ir(i-1)};
+  let x0=null;const v=$("visor");
+  v.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+  v.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){e.preventDefault();ir(dx<0?i+1:i-1)}x0=null});
+  L.tecla=ev=>{if(ev.key==="ArrowRight"||ev.key===" "||ev.key==="PageDown"){ev.preventDefault();ir(i+1)}if(ev.key==="ArrowLeft"||ev.key==="PageUp"){ev.preventDefault();ir(i-1)}};
+  document.addEventListener("keydown",L.tecla);
   pinta();
 }
 /* reproductor de mini-clase: escenas animadas con narración */
@@ -699,12 +729,25 @@ function escenaHTML(s,j){
 function pintaClase(){
   const s=MC.esc[MC.i],v=s.voz[Math.min(MC.j,s.voz.length-1)];
   $("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round(MC.i/MC.esc.length*100)+'%"></i></span><span class="cron">'+(MC.i+1)+'/'+MC.esc.length+'</span></div>'+
-   '<div class="mc-pantalla" id="mcP">'+escenaHTML(s,MC.j)+'</div><p class="mc-sub" id="mcSub">'+(MC.on?esc(v[1]):'Toca ▶ para empezar la mini-clase')+'</p>'+
+   '<div class="mc-pantalla" id="mcP">'+escenaHTML(s,MC.j).replace('class="mc ','class="mc nueva ')+'</div><p class="mc-sub" id="mcSub">'+(MC.on?esc(v[1]):'Toca ▶ para empezar la mini-clase')+'</p>'+
    '<div class="mc-ctrl"><button class="btn sec" id="mcA" aria-label="Escena anterior"'+(MC.i?'':' disabled')+'>⏮</button><button class="btn lila mc-play" id="mcPlay">'+(MC.on?'❚❚ Pausa':'▶ '+(MC.i||MC.j?'Seguir':'Reproducir'))+'</button><button class="btn sec" id="mcS" aria-label="Escena siguiente"'+(MC.i<MC.esc.length-1?'':' disabled')+'>⏭</button></div>';
   $("lx").onclick=()=>{MC.on=false;MC.token++;salir()};
-  $("mcPlay").onclick=()=>{if(MC.on){MC.on=false;MC.token++;callar();pintaClase()}else{MC.on=true;pintaClase();hablarEscena()}};
+  $("mcPlay").onclick=()=>{if(MC.on){MC.on=false;MC.token++;callar()}else{MC.on=true;hablarEscena()}controlesClase()};
   $("mcA").onclick=()=>irEscena(MC.i-1);$("mcS").onclick=()=>irEscena(MC.i+1);
   engancharVis();
+}
+/* actualiza la escena en su sitio (resalta la fila o muestra la traducción) sin volver a dibujarla */
+function marcarPaso(s,j){
+  const p=$("mcP");if(!p)return;
+  if(s.tipo==="formula")p.querySelectorAll(".forma>div").forEach((d,k)=>d.classList.toggle("activa",k===j-1));
+  if(s.tipo==="ejemplo"){const e=p.querySelector(".mc-es");if(e)e.classList.toggle("ver",j>=1)}
+  if(s.tipo==="error"){const b=p.querySelector(".mc-bien"),q=p.querySelector(".mc-porque");if(b)b.classList.toggle("ver",j>=3);if(q)q.classList.toggle("ver",j>=4)}
+}
+/* pausa / reproducir: solo cambia el botón y el subtítulo */
+function controlesClase(){
+  const b=$("mcPlay");if(b)b.textContent=MC.on?"❚❚ Pausa":"▶ Seguir";
+  const sub=$("mcSub"),s=MC.esc[MC.i];if(sub&&!MC.on&&MC.j===0)sub.textContent="Toca ▶ para empezar la mini-clase";
+  if(sub&&MC.on)sub.textContent=(s.voz[Math.min(MC.j,s.voz.length-1)]||[,""])[1];
 }
 function irEscena(i){MC.token++;callar();MC.i=Math.max(0,Math.min(MC.esc.length-1,i));MC.j=0;pintaClase();if(MC.on)hablarEscena()}
 function hablarEscena(){
@@ -716,7 +759,7 @@ function hablarEscena(){
   }
   const [lang,t]=s.voz[MC.j];
   const sub=$("mcSub");if(sub)sub.textContent=t;
-  if(MC.j>0){const p=$("mcP");if(p){p.innerHTML=escenaHTML(s,MC.j);engancharVis()}}
+  if(MC.j>0)marcarPaso(s,MC.j);
   reproducirVoz(lang,t,()=>{if(tk!==MC.token||!MC.on)return;MC.j++;setTimeout(()=>{if(tk!==MC.token||!MC.on)return;hablarEscena()},250)});
 }
 function finClase(){
@@ -730,7 +773,7 @@ const icoX='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 const icoOir='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
 function marco(prog,cuerpo,pie){$("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round(prog*100)+'%"></i></span></div><div class="lec-cuerpo">'+cuerpo+'</div>'+(pie||'');$("lx").onclick=salir}
 function abrirLec(){$("lec").hidden=false;document.body.style.overflow="hidden";$("lec").scrollTop=0}
-function salir(){if(MC){MC.on=false;MC.token++}if(L&&L.tecla)document.removeEventListener("keydown",L.tecla);clearInterval(L&&L.cron);clearInterval(Rh);callar();$("lec").hidden=true;document.body.style.overflow="";L=null;render()}
+function salir(){try{(document.fullscreenElement||document.webkitFullscreenElement)&&(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}if(MC){MC.on=false;MC.token++}if(L&&L.tecla)document.removeEventListener("keydown",L.tecla);clearInterval(L&&L.cron);clearInterval(Rh);callar();$("lec").hidden=true;document.body.style.overflow="";L=null;render()}
 function avanzarSig(n){if(PASOS.every(p=>pasoHecho(n,p[0]))&&P.sig<=n){P.sig=Math.min(16,n+1);guardar()}}
 function pantallaFinal(o){
   anotarAct(o.t,o.chips);
