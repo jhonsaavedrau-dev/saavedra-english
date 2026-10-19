@@ -324,6 +324,10 @@ em.cl{font-style:normal;color:var(--azul);font-weight:800}
 .mc-sub{text-align:center;font-size:15px;color:var(--suave);min-height:3em;margin:14px 6px 8px;font-weight:600}
 .mc-ctrl{display:flex;justify-content:center;gap:10px;margin-bottom:24px}
 .mc-play{min-width:160px}
+
+.btn.c1{text-decoration:none;text-align:center;--c:#0F6E8C;--o:#0A4F65}
+.c1-nota{font-size:13px;color:var(--suave)}
+.pg-libro{justify-self:start;margin-top:4px;font:800 12px/1.2 var(--f-tx);color:var(--azul);background:var(--azul-t);border-radius:999px;padding:6px 10px;text-decoration:none}
 /* barra inferior */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--carta);border-top:2px solid var(--linea);display:flex;justify-content:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .tab{flex:0 1 150px;position:relative;background:transparent;border:2px solid transparent;border-radius:14px;padding:6px;display:grid;justify-items:center;gap:2px;font-size:13px;font-weight:800;color:var(--suave)}
@@ -653,7 +657,9 @@ function htmlMaterial(n){
    u.gram.map((g,i)=>'<button class="mat-clase" data-clase="'+i+'"><span class="play">▶</span><span><b>'+esc(g.t)+'</b><i>'+(vistas.includes(i)?'✓ Vista':'Unos 2 minutos')+'</i></span></button>').join("")+'</div></div>'+
    '<div class="mat-card"><div class="mat-cab"><img src="'+IMG("n-voc")+'" alt=""><div><b>Diapositivas</b><span>'+window.diaposUnidad(n).length+' diapositivas con todo el tema</span></div></div><div class="mat-btns"><button class="btn" id="verDiapos">Ver diapositivas</button><a class="btn sec" href="material/unidad-'+String(n).padStart(2,"0")+'.pdf" target="_blank" rel="noopener">Descargar PDF</a></div></div>'+
    '<div class="mat-card"><div class="mat-cab"><img src="'+IMG("n-examen")+'" alt=""><div><b>En tu libro</b><span>Interchange 3 · páginas '+esc(u.pag)+'</span></div></div><div class="mat-pags">'+
-   pag.map(p=>'<span class="pg"><b>'+esc(p[1])+'</b>'+esc(p[0])+'</span>').join("")+'</div></div></section>';
+   pag.map(p=>'<span class="pg"><b>'+esc(p[1])+'</b>'+esc(p[0])+'</span>').join("")+'</div>'+
+   '<a class="btn c1" href="https://www.cambridgeone.org/" target="_blank" rel="noopener">Abrir mi libro en Cambridge One</a>'+
+   '<p class="c1-nota">Entra con tu cuenta, abre <b>Interchange 3</b> y ve a la página que necesites.</p></div></section>';
 }
 function engancharMaterial(n){
   document.querySelectorAll("[data-clase]").forEach(b=>b.onclick=()=>abrirClase(n,+b.dataset.clase));
@@ -741,7 +747,8 @@ function aprende(){
   if(L.g==null){L.g=0;L.s=0;L.cq=0;L.ok=0}
   const g=u.gram[L.g],e=EX[L.g]||{};
   const total=u.gram.length*PANT.length,pos=L.g*PANT.length+L.s;
-  const cab='<div class="lec-paso"><span class="eti">Tema '+(L.g+1)+' de '+u.gram.length+' · '+PANT[L.s]+'</span><h2>'+esc(g.t)+'</h2></div>';
+  const pgf=((window.PAGINAS||{})[L.n]||[]).find(p=>p[0]==="Grammar focus "+(L.g+1)),pgp=((window.PAGINAS||{})[L.n]||[]).find(p=>p[0]==="Grammar plus");
+  const cab='<div class="lec-paso"><span class="eti">Tema '+(L.g+1)+' de '+u.gram.length+' · '+PANT[L.s]+'</span><h2>'+esc(g.t)+'</h2>'+(pgf?'<a class="pg-libro" href="https://www.cambridgeone.org/" target="_blank" rel="noopener">En tu libro: pág. '+esc(pgf[1])+(pgp?' · más práctica en la pág. '+esc(pgp[1]):'')+' ↗</a>':'')+'</div>';
   let cuerpo="",pie='<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="sig">Siguiente</button></div></div>';
   if(L.s===0){
     cuerpo=cab+'<div class="consejo entra"><img src="'+IMG("mz-estudia")+'" alt=""><div class="bocadillo"><b>¿Para qué sirve?</b><span>'+esc(e.para||g.idea)+'</span></div></div>'+(e.escena?'<div class="escena entra"><span class="eti">Imagina esta situación</span><p>'+esc(e.escena)+'</p></div>':'')+'<p class="idea">'+esc(g.idea)+'</p>';
