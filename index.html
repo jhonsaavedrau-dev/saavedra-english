@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="theme-color" content="#2F5BFF">
+<meta name="description" content="Repaso de Interchange 3 con Jhon Saavedra: explicaciones en español, vocabulario, práctica y speaking.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 4h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H16l-8 7v-7H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z' fill='%232F5BFF'/%3E%3Cpath d='M13 22l7-10 7 10' fill='none' stroke='%23FFD23F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Interchange 3 Repaso</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Figtree:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Mono:wght@500&display=swap">
+<style>
+/* Plan de estudio por bloques del libro (2 unidades + Progress check). Dominio por unidad, cuaderno de errores e insignias. Sistema saavedra english + recursos de PLEX PLAY (Manzana como compañera). */
+:root{
+  --fondo:#F6F7FB;--carta:#FFFFFF;--tinta:#1A1C3A;--suave:#62668A;--linea:#E6E8F2;
+  --azul:#2F5BFF;--azul-o:#1D3FD1;--azul-t:#EAF0FF;--rojo:#FF4F45;--rojo-o:#D9342B;--rojo-t:#FFECEB;
+  --sol:#FFD23F;--sol-o:#E3B200;--sol-t:#FFF6D6;--menta:#16C47F;--menta-o:#0E9C63;--menta-t:#E3F8EF;--lila:#8C7CFF;--lila-o:#6A58E8;--lila-t:#EFEDFF;
+  --sobre:#FFFFFF;--sobre-sol:#1A1C3A;--gris:#C9CCDD;
+  --f-tit:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --f-tx:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fondo:#12142B;--carta:#1C1F3D;--tinta:#F1F2FA;--suave:#A3A7C7;--linea:#2C305A;
+  --azul:#6A8CFF;--azul-o:#3B5FE6;--azul-t:#232B5C;--rojo:#FF7A71;--rojo-o:#D9463E;--rojo-t:#3A2335;
+  --sol:#FFD84F;--sol-o:#D9AE14;--sol-t:#3A3523;--menta:#36DB97;--menta-o:#14A86B;--menta-t:#173A36;--lila:#A99DFF;--lila-o:#7C6CF0;--lila-t:#2A2752;--gris:#3D4170;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --fondo:#12142B;--carta:#1C1F3D;--tinta:#F1F2FA;--suave:#A3A7C7;--linea:#2C305A;
+  --azul:#6A8CFF;--azul-o:#3B5FE6;--azul-t:#232B5C;--rojo:#FF7A71;--rojo-o:#D9463E;--rojo-t:#3A2335;
+  --sol:#FFD84F;--sol-o:#D9AE14;--sol-t:#3A3523;--menta:#36DB97;--menta-o:#14A86B;--menta-t:#173A36;--lila:#A99DFF;--lila-o:#7C6CF0;--lila-t:#2A2752;--gris:#3D4170;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:400 17px/1.55 var(--f-tx);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--azul);outline-offset:2px;border-radius:8px}
+h1,h2,h3{font-family:var(--f-tit);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+.eti{font:500 11px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--suave)}
+.wrap{max-width:760px;margin:0 auto;padding-block:0 110px}
+.btn{--c:var(--azul);--o:var(--azul-o);background:var(--c);color:var(--sobre);border:0;border-radius:14px;padding:13px 18px;font-weight:800;font-size:16px;line-height:1.1;box-shadow:0 4px 0 var(--o);transition:transform .08s,box-shadow .08s}
+.btn:active:not([disabled]){transform:translateY(4px);box-shadow:0 0 0 var(--o)}
+.btn.sec{--c:var(--carta);--o:var(--linea);color:var(--tinta);border:2px solid var(--linea)}
+.btn.menta{--c:var(--menta);--o:var(--menta-o)}
+.btn.rojo{--c:var(--rojo);--o:var(--rojo-o)}
+.btn.lila{--c:var(--lila);--o:var(--lila-o)}
+.btn.sol{--c:var(--sol);--o:var(--sol-o);color:var(--sobre-sol)}
+.btn[disabled]{--c:var(--linea);--o:var(--gris);color:var(--suave);cursor:default}
+.btn.ancho{width:100%}
+.link{background:none;border:0;color:var(--azul);font-weight:800;padding:6px 0}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:5;background:var(--fondo);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px;border-bottom:2px solid var(--linea);margin-bottom:18px}
+.marca{display:inline-flex;align-items:center;gap:7px;font:800 16px/1 var(--f-tit);letter-spacing:-.02em}
+.marca svg{width:28px;height:28px;flex:none}
+.marca .en{background:var(--azul);color:var(--sobre);border-radius:999px;padding:4px 9px 5px;font-size:12px}
+.stats{display:flex;gap:6px;align-items:center}
+.stat{display:inline-flex;align-items:center;gap:5px;font:800 15px/1 var(--f-tx);padding:6px 9px;border-radius:12px;background:var(--carta);border:2px solid var(--linea)}
+.stat img{width:20px;height:20px;object-fit:contain}
+.stat.apagada img{filter:grayscale(1);opacity:.5}
+.sonido{background:transparent;border:0;padding:6px;color:var(--suave)}
+.sonido svg{width:22px;height:22px}
+
+/* inicio */
+.coach{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-items:center;margin-bottom:14px}
+.coach img{width:84px;height:84px;object-fit:contain}
+.bocadillo{background:var(--carta);border:2px solid var(--linea);border-radius:18px 18px 18px 4px;padding:12px 14px;display:grid;gap:3px}
+.bocadillo b{font:800 18px/1.25 var(--f-tit)}
+.bocadillo span{font-size:14px;color:var(--suave)}
+.semana{background:var(--carta);border:2px solid var(--linea);border-radius:18px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.dias{display:flex;gap:6px}
+.dia{width:34px;display:grid;justify-items:center;gap:4px;font:500 11px/1 var(--f-mono);color:var(--suave)}
+.dia i{width:30px;height:30px;border-radius:50%;border:2px solid var(--linea);display:grid;place-items:center}
+.dia.si i{background:var(--sol);border-color:var(--sol)}
+.dia.si i::after{content:"";width:16px;height:16px;background:url("img/i-racha.webp") center/contain no-repeat}
+.dia.hoy{color:var(--tinta);font-weight:700}
+.dia.hoy i{border-color:var(--azul)}
+.semana .tot{font-size:14px;color:var(--suave)}
+.semana .tot b{color:var(--tinta);font-size:16px}
+.objetivo{background:var(--azul);color:var(--sobre);border-radius:22px;padding:20px;display:grid;gap:12px;margin-bottom:26px;position:relative;overflow:hidden}
+.objetivo::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:var(--sol);right:-50px;top:-60px}
+.objetivo>*{position:relative;z-index:1}
+.objetivo .eti{color:var(--sobre);opacity:.85}
+.objetivo h2{font-size:clamp(22px,4.4vw,30px)}
+.objetivo .listo{display:flex;align-items:center;gap:10px;font-weight:800}
+.objetivo .pista{flex:1;height:12px;background:rgba(255,255,255,.25);border-radius:99px;overflow:hidden}
+.objetivo .pista i{display:block;height:100%;background:var(--sol);border-radius:99px}
+.objetivo .btn{--c:var(--sobre);--o:rgba(0,0,0,.25);color:var(--azul-o);justify-self:start}
+.bloque{background:var(--carta);border:2px solid var(--linea);border-radius:22px;padding:6px;margin-bottom:14px}
+.bloque-cab{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px 8px}
+.bloque-cab h3{font-size:17px}
+.bloque-cab .listo{font:500 12px/1 var(--f-mono);color:var(--suave)}
+.uni{width:100%;display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;background:var(--fondo);border:2px solid transparent;border-radius:16px;padding:10px 12px;margin-top:6px;transition:border-color .2s,transform .2s}
+.uni:hover{border-color:var(--azul)}
+.uni .num{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font:800 24px/1 var(--f-tit);color:var(--t,var(--sobre));background:var(--c)}
+.uni b{font-size:16px;line-height:1.25;display:block}
+.uni span.tema{font-size:13px;color:var(--suave)}
+.chip{display:inline-block;font:800 11px/1 var(--f-tx);letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:5px 8px;margin-top:5px}
+.chip.vista{background:var(--menta-t);color:var(--menta-o)}
+.chip.sig{background:var(--azul-t);color:var(--azul)}
+.chip.luego{background:var(--linea);color:var(--suave)}
+.chip.dom{background:var(--sol-t);color:var(--tinta)}
+.anillo{width:48px;height:48px;position:relative;flex:none}
+.anillo svg{width:48px;height:48px}
+.anillo circle{fill:none;stroke-width:10}
+.anillo .base{stroke:var(--linea)}
+.anillo .prog{stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:264}
+.anillo span{position:absolute;inset:0;display:grid;place-items:center;font:800 12px/1 var(--f-tx)}
+.pc-fila{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 6px 6px;padding:10px 12px;border:2px dashed var(--linea);border-radius:16px}
+.pc-fila img{width:40px;height:40px}
+.pc-fila .tx{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
+.pc-fila .tx span{display:block;font-weight:400;font-size:13px;color:var(--suave)}
+
+/* unidad */
+.u-hero{border-radius:24px;padding:20px;background:var(--c);color:var(--t,var(--sobre));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin:8px 0 16px;position:relative;overflow:hidden}
+.u-hero .eti{color:inherit;opacity:.85}
+.u-hero h1{font-size:clamp(28px,6vw,42px);margin:4px 0}
+.u-hero p{opacity:.9}
+.u-hero .grande{width:96px;height:96px;position:relative}
+.u-hero .grande svg{width:96px;height:96px}
+.u-hero .grande circle{fill:none;stroke-width:10}
+.u-hero .grande .base{stroke:rgba(255,255,255,.3)}
+.u-hero .grande .prog{stroke:var(--t,var(--sobre));stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:264;transition:stroke-dashoffset .8s cubic-bezier(.3,1.2,.5,1)}
+.u-hero .grande span{position:absolute;inset:0;display:grid;place-items:center;font:800 22px/1 var(--f-tit)}
+.u-coach{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;margin-bottom:14px}
+.u-coach img{width:72px;height:72px;object-fit:contain}
+.pasos{display:grid;gap:10px;position:relative}
+.paso{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;background:var(--carta);border:2px solid var(--linea);border-radius:18px;padding:12px 14px;box-shadow:0 4px 0 var(--linea);transition:transform .08s,box-shadow .08s}
+.paso:active{transform:translateY(4px);box-shadow:none}
+.paso img{width:52px;height:52px;object-fit:contain}
+.paso b{font-size:17px;display:block}
+.paso span.d{font-size:14px;color:var(--suave)}
+.paso .est{font:800 12px/1 var(--f-tx);border-radius:999px;padding:7px 10px;white-space:nowrap}
+.paso.hecho .est{background:var(--menta-t);color:var(--menta-o)}
+.paso.siguiente{border-color:var(--azul);box-shadow:0 4px 0 var(--azul-o)}
+.paso.siguiente .est{background:var(--azul);color:var(--sobre)}
+.paso .est.xp{background:var(--sol-t);color:var(--tinta)}
+.aviso-err{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--rojo-t);border-radius:16px;padding:12px 14px;font-weight:700}
+
+/* errores e insignias */
+.vacio{display:grid;justify-items:center;text-align:center;gap:10px;padding:30px 10px}
+.vacio img{width:150px;height:150px;object-fit:contain}
+.vacio p{color:var(--suave);max-width:40ch}
+.err-lista{display:grid;gap:8px;margin:14px 0}
+.err-u{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--carta);border:2px solid var(--linea);border-radius:14px;padding:12px 14px}
+.err-u b{font-size:15px}
+.err-u .n{font:800 14px/1 var(--f-mono);background:var(--rojo);color:var(--sobre);border-radius:999px;padding:6px 10px}
+.insignias{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ins{background:var(--carta);border:2px solid var(--linea);border-radius:18px;padding:14px;display:grid;justify-items:center;text-align:center;gap:6px}
+.ins img{width:64px;height:64px;object-fit:contain}
+.ins b{font-size:15px;line-height:1.2}
+.ins span{font-size:12px;color:var(--suave);line-height:1.3}
+.ins .barra{width:100%;height:7px;background:var(--linea);border-radius:99px;overflow:hidden}
+.ins .barra i{display:block;height:100%;background:var(--sol);border-radius:99px}
+.ins.no img{filter:grayscale(1);opacity:.4}
+.ins.si{border-color:var(--sol)}
+.resumen-ins{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;margin-bottom:16px}
+.resumen-ins img{width:72px;height:72px;object-fit:contain}
+
+/* barra inferior */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--carta);border-top:2px solid var(--linea);display:flex;justify-content:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.tab{flex:0 1 150px;position:relative;background:transparent;border:2px solid transparent;border-radius:14px;padding:6px;display:grid;justify-items:center;gap:2px;font-size:13px;font-weight:800;color:var(--suave)}
+.tab img{width:28px;height:28px;object-fit:contain}
+.tab[aria-selected="true"]{border-color:var(--azul);background:var(--azul-t);color:var(--azul)}
+.tab .badge{position:absolute;top:2px;right:calc(50% - 30px);background:var(--rojo);color:var(--sobre);font:800 11px/1 var(--f-tx);border-radius:999px;padding:3px 6px}
+
+/* lección */
+#lec{position:fixed;inset:0;z-index:20;background:var(--fondo);overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.lec-in{max-width:680px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
+.lec-top{display:flex;align-items:center;gap:12px;padding-bottom:16px}
+.cerrar{background:transparent;border:0;padding:4px;color:var(--suave)}
+.cerrar svg{width:26px;height:26px}
+.pista{flex:1;height:14px;background:var(--linea);border-radius:99px;overflow:hidden}
+.pista i{display:block;height:100%;background:var(--menta);border-radius:99px;transition:width .4s cubic-bezier(.3,1.3,.5,1)}
+.lec-cuerpo{flex:1;display:flex;flex-direction:column;gap:16px;padding-bottom:20px}
+.consejo{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:end}
+.consejo img{width:76px;height:76px;object-fit:contain}
+.preg{font:700 clamp(22px,4.6vw,30px)/1.35 var(--f-tx);overflow-wrap:anywhere}
+mark{background:var(--sol-t);color:inherit;border-radius:6px;padding:0 .2em}
+.ops{display:grid;gap:10px}
+.op{text-align:left;background:var(--carta);border:2px solid var(--linea);border-radius:16px;padding:15px 16px;font-weight:700;font-size:18px;box-shadow:0 4px 0 var(--linea);display:flex;gap:12px;align-items:center;transition:transform .08s,box-shadow .08s}
+.op:active{transform:translateY(4px);box-shadow:none}
+.op .l{width:28px;height:28px;border-radius:9px;border:2px solid var(--linea);display:grid;place-items:center;font:500 12px/1 var(--f-mono);color:var(--suave);flex:none}
+.op[aria-pressed="true"]{border-color:var(--azul);box-shadow:0 4px 0 var(--azul-o);background:var(--azul-t)}
+.op.bien{border-color:var(--menta);box-shadow:0 4px 0 var(--menta-o);background:var(--menta-t)}
+.op.mal{border-color:var(--rojo);box-shadow:0 4px 0 var(--rojo-o);background:var(--rojo-t)}
+.escribe{width:100%;background:var(--carta);border:2px solid var(--linea);border-radius:16px;padding:16px;font-size:20px;font-weight:700}
+.escribe:focus{outline:none;border-color:var(--azul)}
+.respuesta{min-height:64px;border-bottom:3px solid var(--linea);display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;padding-bottom:10px}
+.fichas{display:flex;flex-wrap:wrap;gap:8px}
+.ficha{background:var(--carta);border:2px solid var(--linea);border-radius:12px;padding:11px 14px;font-weight:700;font-size:17px;box-shadow:0 3px 0 var(--linea)}
+.ficha.usada{opacity:.25;pointer-events:none;box-shadow:none}
+.etiq-err{align-self:flex-start;font:800 12px/1 var(--f-tx);color:var(--rojo-o);background:var(--rojo-t);border-radius:999px;padding:6px 10px}
+.pie-lec{position:sticky;bottom:0;margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:16px max(16px,env(safe-area-inset-left,0px)) calc(16px + env(safe-area-inset-bottom,0px));background:var(--fondo);border-top:2px solid var(--linea)}
+.pie-lec .in{max-width:680px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.pie-lec .in.solo{grid-template-columns:minmax(0,1fr)}
+.pie-lec.bien{background:var(--menta-t);border-color:var(--menta)}
+.pie-lec.mal{background:var(--rojo-t);border-color:var(--rojo)}
+.pie-lec .mz{width:64px;height:64px;object-fit:contain}
+.pie-lec .msg{display:grid;gap:2px}
+.pie-lec .msg b{font:800 20px/1.2 var(--f-tit)}
+.pie-lec.bien .msg b{color:var(--menta-o)}
+.pie-lec.mal .msg b{color:var(--rojo-o)}
+.pie-lec .msg span{font-size:15px}
+.pie-lec .ins{color:var(--azul);font-weight:800}
+.pie-lec .btn{grid-column:1/-1}
+.combo{align-self:flex-start;font:800 14px/1 var(--f-tx);color:#E8700F;background:var(--sol-t);border-radius:999px;padding:7px 12px;display:inline-flex;gap:6px;align-items:center}
+.combo img{width:18px;height:18px}
+.tarjeta{background:var(--carta);border-radius:22px;padding:clamp(18px,4vw,28px);display:grid;gap:14px;border:2px solid var(--linea)}
+.tarjeta h2{font-size:clamp(24px,4.6vw,32px)}
+.idea{font-size:18px;line-height:1.6}
+.forma{display:grid;gap:8px}
+.forma div{display:grid;grid-template-columns:minmax(110px,30%) minmax(0,1fr);gap:12px;align-items:baseline;background:var(--fondo);border-radius:12px;padding:12px 14px}
+.forma .k{font:500 12px/1.4 var(--f-mono);color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
+.forma .v{font-weight:700;font-size:18px}
+@media (max-width:520px){.forma div{grid-template-columns:minmax(0,1fr);gap:2px}}
+.ojo{background:var(--rojo-t);border-radius:14px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start}
+.ojo b{background:var(--rojo);color:var(--sobre);border-radius:8px;padding:3px 8px;font-size:12px;letter-spacing:.06em}
+.fc{perspective:1000px;background:none;border:0;padding:0;width:100%;text-align:left}
+.fc-in{position:relative;min-height:250px;transition:transform .55s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.fc.vuelta .fc-in{transform:rotateY(180deg)}
+.cara{position:absolute;inset:0;border-radius:24px;padding:24px;display:grid;align-content:center;justify-items:center;gap:12px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.frente{background:var(--carta);border:2px solid var(--linea);box-shadow:0 6px 0 var(--linea)}
+.frente b{font:800 clamp(30px,7vw,44px)/1.1 var(--f-tit)}
+.atras{background:var(--menta-t);border:2px solid var(--menta);transform:rotateY(180deg)}
+.atras b{font-size:24px}
+.atras em{font-size:18px;line-height:1.45}
+.oir{display:inline-flex;align-items:center;gap:6px;background:var(--azul-t);color:var(--azul);border:0;border-radius:999px;padding:8px 14px;font-weight:800;font-size:15px}
+.oir svg{width:18px;height:18px}
+.toca{font-size:13px;color:var(--suave)}
+.parejas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.par{background:var(--carta);border:2px solid var(--linea);border-radius:14px;padding:14px 10px;font-weight:700;font-size:16px;box-shadow:0 4px 0 var(--linea);min-height:62px;overflow-wrap:anywhere;transition:opacity .3s}
+.par[aria-pressed="true"]{border-color:var(--azul);background:var(--azul-t);box-shadow:0 4px 0 var(--azul-o)}
+.par.ok{border-color:var(--menta);background:var(--menta-t);box-shadow:none;opacity:.35;pointer-events:none}
+.par.mal{border-color:var(--rojo);background:var(--rojo-t)}
+.cron{font:500 15px/1 var(--f-mono);color:var(--suave);font-variant-numeric:tabular-nums}
+.habla{background:var(--lila);color:var(--sobre);border-radius:24px;padding:clamp(20px,5vw,32px);display:grid;gap:18px}
+.habla .eti{color:var(--sobre);opacity:.85}
+.habla h2{font-size:clamp(24px,5vw,34px);line-height:1.2}
+.reloj{display:flex;align-items:center;gap:14px}
+.reloj svg{width:64px;height:64px;flex:none}
+.reloj circle{fill:none;stroke-width:9}
+.reloj .base{stroke:rgba(255,255,255,.3)}
+.reloj .prog2{stroke:var(--sobre);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:283;transition:stroke-dashoffset 1s linear}
+.reloj .t{font:500 34px/1 var(--f-mono);font-variant-numeric:tabular-nums}
+.habla .btn{--c:var(--sobre);--o:rgba(0,0,0,.25);color:var(--lila-o)}
+.ayudas{background:var(--carta);border:2px solid var(--linea);border-radius:18px;padding:16px}
+.ayudas ul{margin:6px 0 0;padding-left:20px;display:grid;gap:6px;font-size:16px}
+.final{flex:1;display:grid;justify-items:center;align-content:center;text-align:center;gap:14px;padding:20px 0}
+.final img.mz{width:170px;height:170px;object-fit:contain}
+.final h2{font-size:clamp(28px,6vw,40px)}
+.final p{color:var(--suave);max-width:42ch}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.dato{border-radius:16px;border:2px solid var(--c);overflow:hidden;min-width:104px;background:var(--carta)}
+.dato span{display:block;background:var(--c);color:var(--sobre);font:800 12px/1 var(--f-tx);text-transform:uppercase;letter-spacing:.06em;padding:6px 8px}
+.dato b{display:block;font:800 22px/1 var(--f-tit);padding:10px 8px;color:var(--c)}
+.confeti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:40}
+.confeti i{position:absolute;width:10px;height:15px;border-radius:3px;top:40%;left:50%;animation:volar 1.1s cubic-bezier(.2,.7,.4,1) forwards}
+@keyframes volar{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+@keyframes entrar{from{transform:scale(.7) translateY(10px);opacity:0}}
+@keyframes temblar{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes rebote{0%{transform:scale(.3)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.tiembla{animation:temblar .4s}
+.toast{position:fixed;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:45;background:var(--carta);border:2px solid var(--linea);border-radius:18px;padding:10px 16px 10px 10px;display:flex;gap:10px;align-items:center;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.12);max-width:calc(100% - 32px)}
+.toast img{width:44px;height:44px;object-fit:contain}
+@media (prefers-reduced-motion:no-preference){.entra{animation:entrar .35s cubic-bezier(.3,1.4,.5,1)}.rebota{animation:rebote .55s cubic-bezier(.3,1.4,.5,1)}.toast{animation:entrar .35s cubic-bezier(.3,1.4,.5,1)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <span class="marca"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 4h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H16l-8 7v-7H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="var(--azul)"/><path d="M13 22l7-10 7 10" fill="none" stroke="var(--sol)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>saavedra <span class="en">english</span></span>
+    <div class="stats" id="stats"></div>
+  </header>
+  <main id="app"></main>
+</div>
+<nav class="tabbar" role="tablist">
+  <button class="tab" role="tab" data-t="plan"><img src="img/n-gram.webp" alt="">Mi plan</button>
+  <button class="tab" role="tab" data-t="errores"><img src="img/n-prac.webp" alt="">Mis errores<span class="badge" id="bErr" hidden></span></button>
+  <button class="tab" role="tab" data-t="insignias"><img src="img/i-corona.webp" alt="">Insignias</button>
+</nav>
+<div id="lec" hidden><div class="lec-in" id="lecIn"></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="unidades.js"></script>
+<script>
+(function(){
+"use strict";
+const U=window.UNIDADES||[];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mezclar=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const norm=s=>String(s).toLowerCase().replace(/[’']/g,"'").replace(/[.,!?¿¡]/g,"").replace(/\s+/g," ").trim();
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const hoy=()=>iso(new Date());
+const ayer=()=>{const d=new Date();d.setDate(d.getDate()-1);return iso(d)};
+const IMG=n=>"img/"+n+".webp";
+const uni=n=>U.find(u=>u.n===n);
+const COLORES=[["var(--azul)","var(--azul-o)"],["var(--menta)","var(--menta-o)"],["var(--lila)","var(--lila-o)"],["var(--sol)","var(--sol-o)","var(--sobre-sol)"]];
+const colorU=n=>COLORES[(n-1)%4];
+const PASOS=[["aprende","Entiende la gramática","Explicación en español con ejemplos y el error típico","n-gram",10],["palabras","Vocabulario","Tarjetas con audio de las palabras de la unidad","n-voc",10],["practica","Práctica","Ejercicios como los del examen. Necesitas 60% para pasar","n-prac",50],["parejas","Reto de parejas","Une palabras con su significado contra reloj","n-juego",15],["habla","Speaking","Responde en voz alta 2 preguntas de la unidad","n-habla",15]];
+
+/* ---------- estado (en este navegador) ---------- */
+const LS="interchange3-v3";
+let P;try{P=JSON.parse(localStorage.getItem(LS)||"null")}catch(e){P=null}
+if(!P){
+  P={xp:0,racha:0,ultimoDia:"",dias:[],u:{},err:{},corregidos:0,pc:{},son:true,sig:7};
+  try{const v=JSON.parse(localStorage.getItem("interchange3-v2")||"null");if(v){P.xp=v.xp||0;P.racha=v.racha||0;P.ultimoDia=v.ultimoDia||"";P.pc=v.pc||{};P.son=v.son!==false;P.sig=v.sig||7;if(P.ultimoDia)P.dias=[P.ultimoDia];
+    Object.keys(v.u||{}).forEach(k=>{const o=v.u[k],d=o.d||[];P.u[k]={a:!!d[0],v:!!d[1],best:o.best||(d[2]?.6:0),reto:o.parejas||(d[3]?60:0),h:!!d[4],perfecta:!!o.perfecta}})}}catch(e){}
+}
+function guardar(){try{localStorage.setItem(LS,JSON.stringify(P))}catch(e){}}
+if(P.ultimoDia&&P.ultimoDia!==hoy()&&P.ultimoDia!==ayer()){P.racha=0;guardar()}
+const UP=n=>P.u[n]=P.u[n]||{a:false,v:false,best:0,reto:0,h:false};
+function dominio(n){const u=UP(n);return Math.round((u.a?10:0)+(u.v?10:0)+Math.min(1,u.best||0)*50+(u.reto?15:0)+(u.h?15:0))}
+const pasoHecho=(n,k)=>{const u=UP(n);return k==="aprende"?u.a:k==="palabras"?u.v:k==="practica"?(u.best||0)>=.6:k==="parejas"?!!u.reto:u.h};
+const bloqueDe=n=>Math.ceil(n/2);
+const listoBloque=b=>Math.round((dominio(2*b-1)+dominio(2*b))/2);
+const nivel=()=>Math.floor(Math.sqrt(P.xp/40))+1;
+const nErr=n=>Object.keys(P.err).filter(k=>n==null||+k.split("-")[0]===n).length;
+
+/* ---------- sonido y efectos ---------- */
+let ac=null;
+function tono(notas,tipo="sine",vol=.12){if(!P.son)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();const t0=ac.currentTime;notas.forEach(([f,t,d])=>{const o=ac.createOscillator(),g=ac.createGain();o.type=tipo;o.frequency.value=f;g.gain.setValueAtTime(0,t0+t);g.gain.linearRampToValueAtTime(vol,t0+t+.015);g.gain.exponentialRampToValueAtTime(.0001,t0+t+d);o.connect(g).connect(ac.destination);o.start(t0+t);o.stop(t0+t+d+.05)})}catch(e){}}
+const SFX={bien:()=>tono([[659,0,.12],[988,.09,.22]],"triangle"),mal:()=>tono([[220,0,.18],[180,.12,.25]],"square",.05),fin:()=>tono([[523,0,.15],[659,.12,.15],[784,.24,.15],[1047,.36,.4]],"triangle"),tap:()=>tono([[880,0,.05]],"sine",.04)};
+function hablar(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.92;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function confeti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const d=document.createElement("div");d.className="confeti";const cols=["#2F5BFF","#FFD23F","#16C47F","#8C7CFF","#FF4F45"];for(let i=0;i<40;i++){const p=document.createElement("i");const a=Math.random()*Math.PI*2,r=120+Math.random()*240;p.style.background=cols[i%5];p.style.setProperty("--x",Math.cos(a)*r+"px");p.style.setProperty("--y",Math.sin(a)*r-80+"px");p.style.setProperty("--r",Math.random()*720+"deg");d.appendChild(p)}document.body.appendChild(d);setTimeout(()=>d.remove(),1300)}
+function toast(img,t){const el=$("toast");el.innerHTML='<img src="'+IMG(img)+'" alt="">'+esc(t);el.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>el.hidden=true,2600)}
+function ganar(xp){
+  const nA=nivel();P.xp+=xp;const h=hoy();let nueva=false;
+  if(P.ultimoDia!==h){P.racha=P.ultimoDia===ayer()?P.racha+1:1;P.ultimoDia=h;nueva=true}
+  if(!P.dias.includes(h)){P.dias.push(h);P.dias=P.dias.slice(-60)}
+  guardar();
+  setTimeout(()=>{if(nueva&&P.racha>1)toast("mz-racha","¡Llevas "+P.racha+" días seguidos!");else if(nivel()>nA)toast("mz-trofeo","¡Subiste al nivel "+nivel()+"!")},400);
+}
+const anillo=(pct,color,cls="anillo")=>'<span class="'+cls+'"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="base" cx="50" cy="50" r="42"/><circle class="prog" cx="50" cy="50" r="42" style="stroke:'+color+';stroke-dashoffset:'+(264*(1-pct/100))+'"/></svg><span>'+pct+'%</span></span>';
+
+/* ---------- barra superior y pestañas ---------- */
+function stats(){
+  $("stats").innerHTML='<span class="stat'+(P.ultimoDia===hoy()?'':' apagada')+'" title="Días seguidos"><img src="'+IMG("i-racha")+'" alt="Racha">'+P.racha+'</span><span class="stat" title="Nivel y XP"><img src="'+IMG("i-corona")+'" alt="Nivel">'+P.xp+' XP</span><button class="sonido" id="son" aria-label="'+(P.son?'Silenciar':'Activar sonido')+'">'+(P.son?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor"/><path d="M17 9l5 6M22 9l-5 6"/></svg>')+'</button>';
+  $("son").onclick=()=>{P.son=!P.son;guardar();stats();SFX.tap()};
+  const ne=nErr();$("bErr").hidden=!ne;$("bErr").textContent=ne;
+}
+let VISTA="plan",UNI=null;
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{VISTA=t.dataset.t;UNI=null;render();scrollTo(0,0)});
+function render(){stats();document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.t===VISTA));if(UNI)return vistaUnidad(UNI);({plan,errores,insignias})[VISTA]()}
+
+/* ---------- Mi plan ---------- */
+function plan(){
+  const sig=uni(P.sig)||uni(7),b=bloqueDe(sig.n),ls=listoBloque(b);
+  const sigPaso=PASOS.find(p=>!pasoHecho(sig.n,p[0]));
+  const yaHoy=P.ultimoDia===hoy();
+  let msg=yaHoy?"¡Buen trabajo hoy!":"¡Hola, Erick!";
+  let sub=sigPaso?"Te toca: "+sigPaso[1].toLowerCase()+" de la unidad "+sig.n+".":"La unidad "+sig.n+" ya está completa. Prueba el Progress check.";
+  if(nErr()>=5)sub="Tienes "+nErr()+" errores por corregir. Repasarlos es lo que más te ayuda en el examen.";
+  let h='<section class="coach entra"><img src="'+IMG(yaHoy?"mz-pulgar":"mz-hola")+'" alt="Manzana, tu compañera de estudio"><div class="bocadillo"><b>'+msg+'</b><span>'+esc(sub)+'</span></div></section>';
+  const lunes=new Date();lunes.setDate(lunes.getDate()-((lunes.getDay()+6)%7));let semana=0;
+  h+='<div class="semana"><div class="dias">'+["L","M","X","J","V","S","D"].map((d,i)=>{const f=new Date(lunes);f.setDate(lunes.getDate()+i);const k=iso(f),si=P.dias.includes(k);if(si)semana++;return '<span class="dia'+(si?' si':'')+(k===hoy()?' hoy':'')+'"><i></i>'+d+'</span>'}).join("")+'</div><span class="tot"><b>'+semana+'</b> días esta semana · racha '+P.racha+'</span></div>';
+  h+='<section class="objetivo"><span class="eti">Tu próximo objetivo</span><h2>Progress check '+(2*b-1)+'–'+(2*b)+'</h2><div class="listo"><span class="pista"><i style="width:'+ls+'%"></i></span>'+ls+'% listo</div><button class="btn" id="irSig">'+(sigPaso?'Seguir con la unidad '+sig.n:'Hacer el Progress check')+'</button></section>';
+  for(let k=1;k<=8;k++){
+    const a=uni(2*k-1),c=uni(2*k),lk=listoBloque(k),rec=P.pc["pc"+(2*k)];
+    h+='<section class="bloque"><div class="bloque-cab"><h3>Bloque '+k+' · Unidades '+a.n+'–'+c.n+'</h3><span class="listo">'+lk+'% listo</span></div>';
+    [a,c].forEach(u=>{const d=dominio(u.n),[col,,tx]=colorU(u.n);const chip=d>=80?'<span class="chip dom">Dominada</span>':u.n<7?'<span class="chip vista">Vista en clase</span>':u.n===P.sig?'<span class="chip sig">Siguiente</span>':'<span class="chip luego">Más adelante</span>';
+      h+='<button class="uni" data-u="'+u.n+'"><span class="num" style="--c:'+col+(tx?';--t:'+tx:'')+'">'+u.n+'</span><span><b>'+esc(u.t)+'</b><span class="tema">'+esc(u.tema)+'</span><br>'+chip+'</span>'+anillo(d,d>=80?"var(--menta)":"var(--azul)")+'</button>'});
+    h+='<div class="pc-fila"><span class="tx"><img src="'+IMG("n-examen")+'" alt="">Progress check<span>'+(rec!=null?'Récord: '+rec+' aciertos en 90 s':'Contrarreloj de 90 s con las dos unidades')+'</span></span><button class="btn sol" data-pc="'+(2*k)+'">Practicar</button></div></section>';
+  }
+  h+='<p class="eti" style="text-align:center;margin-top:24px">Basado en Interchange 5th edition, Level 3 (Cambridge) · Preparado por Jhon Saavedra</p>';
+  $("app").innerHTML=h;
+  $("irSig").onclick=()=>{if(sigPaso)abrirUnidad(sig.n);else abrirPC(2*b)};
+  document.querySelectorAll("[data-u]").forEach(x=>x.onclick=()=>abrirUnidad(+x.dataset.u));
+  document.querySelectorAll("[data-pc]").forEach(x=>x.onclick=()=>abrirPC(+x.dataset.pc));
+}
+function abrirUnidad(n){UNI=n;render();scrollTo(0,0)}
+function vistaUnidad(n){
+  const u=uni(n),d=dominio(n),[col,,tx]=colorU(n),sig=PASOS.find(p=>!pasoHecho(n,p[0])),up=UP(n),ne=nErr(n);
+  const mz=d>=80?"mz-campeon":d>=40?"mz-pulgar":"mz-estudia";
+  const msg=d>=80?"¡Dominas esta unidad! Repasa cuando quieras para no olvidarla.":sig?"Empieza por «"+sig[1].toLowerCase()+"». Vamos paso a paso.":"Ya hiciste todos los pasos. Sube tu práctica a más de 80% para dominarla.";
+  let h='<button class="link" id="volver">← Mi plan</button><section class="u-hero" style="--c:'+col+(tx?';--t:'+tx:'')+'"><div><span class="eti">Unidad '+n+' · páginas '+u.pag+'</span><h1>'+esc(u.t)+'</h1><p>'+esc(u.tema)+'</p></div>'+anillo(d,"",'grande')+'</section>';
+  h+='<div class="u-coach"><img src="'+IMG(mz)+'" alt=""><div class="bocadillo"><b>'+(d>=80?"Unidad dominada":"Dominio: "+d+"%")+'</b><span>'+esc(msg)+'</span></div></div><div class="pasos">';
+  PASOS.forEach(p=>{const hecho=pasoHecho(n,p[0]),es=sig&&sig[0]===p[0];let est=hecho?"✓ Hecho":es?"Empezar":"+"+p[4]+"%";
+    if(p[0]==="practica"&&up.best)est=(hecho?"✓ ":"")+Math.round(up.best*100)+"%";
+    if(p[0]==="parejas"&&up.reto)est="✓ "+up.reto+" s";
+    h+='<button class="paso'+(hecho?' hecho':'')+(es?' siguiente':'')+'" data-p="'+p[0]+'"><img src="'+IMG(p[3])+'" alt=""><span><b>'+p[1]+'</b><span class="d">'+p[2]+'</span></span><span class="est'+(!hecho&&!es?' xp':'')+'">'+est+'</span></button>'});
+  h+='</div>'+(ne?'<div class="aviso-err"><span>Tienes '+ne+(ne===1?' error':' errores')+' de esta unidad por corregir</span><button class="btn rojo" id="repErr">Corregir</button></div>':'');
+  $("app").innerHTML=h;
+  $("volver").onclick=()=>{UNI=null;render();scrollTo(0,0)};
+  document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>abrir(n,b.dataset.p));
+  if($("repErr"))$("repErr").onclick=()=>abrirErrores(n);
+}
+
+/* ---------- Mis errores ---------- */
+function errores(){
+  const total=nErr();
+  if(!total){$("app").innerHTML='<div class="vacio entra"><img src="'+IMG("mz-amor")+'" alt=""><h2>Sin errores pendientes</h2><p>Cuando falles una pregunta, se guarda aquí. Sale de la lista cuando la aciertes dos veces seguidas.'+(P.corregidos?' Ya corregiste '+P.corregidos+'.':'')+'</p></div>';return}
+  const por={};Object.keys(P.err).forEach(k=>{const n=+k.split("-")[0];por[n]=(por[n]||0)+1});
+  let h='<section class="coach entra"><img src="'+IMG("mz-piensa")+'" alt=""><div class="bocadillo"><b>Tu cuaderno de errores</b><span>Estas preguntas te costaron. Repasarlas es la forma más rápida de mejorar tu nota.</span></div></section>';
+  h+='<button class="btn rojo ancho" id="todo">Corregir mis '+total+' errores</button><div class="err-lista">'+Object.keys(por).sort((a,b)=>a-b).map(n=>'<button class="err-u" data-e="'+n+'"><b>Unidad '+n+' · '+esc(uni(+n).t)+'</b><span class="n">'+por[n]+'</span></button>').join("")+'</div><p class="eti" style="text-align:center">Corregidos hasta hoy: '+P.corregidos+'</p>';
+  $("app").innerHTML=h;
+  $("todo").onclick=()=>abrirErrores(null);
+  document.querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>abrirErrores(+b.dataset.e));
+}
+
+/* ---------- Insignias ---------- */
+function listaIns(){
+  const dom=U.filter(u=>dominio(u.n)>=80).length,bloq=[1,2,3,4,5,6,7,8].filter(b=>listoBloque(b)>=80).length,perf=Object.values(P.u).some(x=>x.perfecta),rapido=Object.values(P.u).some(x=>x.reto&&x.reto<=30),pcMax=Math.max(0,...Object.values(P.pc).map(Number));
+  return [["i-racha","Primer paso","Completa tu primera actividad",P.xp>0?1:0,1],["i-cal","Constancia","Estudia 3 días seguidos",P.racha,3],["mz-racha","Hábito","Estudia 7 días seguidos",P.racha,7],["n-hecho","Unidad dominada","Llega a 80% en una unidad",dom,1],["n-examen","Listo para el examen","Un bloque al 80%",bloq,1],["mz-trofeo","Medio libro","Domina 8 unidades",dom,8],["i-corona","Libro completo","Domina las 16 unidades",dom,16],["mz-amor","Sin errores","Una práctica perfecta",perf?1:0,1],["n-prac","Aprendo de mis errores","Corrige 20 errores",P.corregidos,20],["n-juego","Memoria rápida","Reto de parejas en 30 s",rapido?1:0,1],["mz-sorpresa","Contrarreloj","15 aciertos en un Progress check",pcMax,15],["mz-campeon","Constante","Gana 1000 XP",P.xp,1000]];
+}
+function insignias(){
+  const L=listaIns(),ok=L.filter(l=>l[3]>=l[4]).length;
+  let h='<section class="resumen-ins entra"><img src="'+IMG("mz-trofeo")+'" alt=""><div class="bocadillo"><b>'+ok+' de '+L.length+' insignias</b><span>Nivel '+nivel()+' · '+P.xp+' XP · '+U.filter(u=>dominio(u.n)>=80).length+' unidades dominadas</span></div></section><div class="insignias">';
+  L.forEach(l=>{const si=l[3]>=l[4];h+='<div class="ins'+(si?' si':' no')+'"><img src="'+IMG(l[0])+'" alt=""><b>'+l[1]+'</b><span>'+l[2]+'</span>'+(si?'<span class="eti" style="color:var(--menta-o)">Lograda</span>':'<span class="barra"><i style="width:'+Math.min(100,l[3]/l[4]*100)+'%"></i></span>')+'</div>'});
+  $("app").innerHTML=h+'</div>';
+}
+
+/* ---------- lección: armazón ---------- */
+let L=null,Rh=null;
+const icoX='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+const icoOir='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
+function marco(prog,cuerpo,pie){$("lecIn").innerHTML='<div class="lec-top"><button class="cerrar" id="lx" aria-label="Salir">'+icoX+'</button><span class="pista"><i style="width:'+Math.round(prog*100)+'%"></i></span></div><div class="lec-cuerpo">'+cuerpo+'</div>'+(pie||'');$("lx").onclick=salir}
+function abrirLec(){$("lec").hidden=false;document.body.style.overflow="hidden";$("lec").scrollTop=0}
+function salir(){clearInterval(L&&L.cron);clearInterval(Rh);try{speechSynthesis.cancel()}catch(e){}$("lec").hidden=true;document.body.style.overflow="";L=null;render()}
+function avanzarSig(n){if(PASOS.every(p=>pasoHecho(n,p[0]))&&P.sig<=n){P.sig=Math.min(16,n+1);guardar()}}
+function pantallaFinal(o){
+  marco(1,'<div class="final"><img class="mz rebota" src="'+IMG(o.mz)+'" alt=""><h2>'+esc(o.t)+'</h2><p>'+esc(o.p)+'</p><div class="chips">'+o.chips.map(c=>'<div class="dato" style="--c:'+c[2]+'"><span>'+c[0]+'</span><b>'+c[1]+'</b></div>').join("")+'</div></div>','<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="fin">Continuar</button></div></div>');
+  $("fin").onclick=salir;SFX.fin();if(o.confeti)confeti();
+}
+function cierreDominio(n,antes){const d=dominio(n);if(antes<80&&d>=80){setTimeout(()=>{confeti();toast("mz-campeon","¡Dominaste la unidad "+n+"!")},500)}}
+function abrir(n,tipo){const u=uni(n);L={u,n,tipo,antes:dominio(n)};abrirLec();({aprende,palabras,practica,parejas,habla})[tipo]()}
+
+function aprende(){
+  const u=L.u;L.k=L.k||0;const g=u.gram[L.k];
+  marco(L.k/u.gram.length,'<div class="consejo entra"><img src="'+IMG("mz-estudia")+'" alt=""><div class="bocadillo"><b>'+(L.k===0?'Te lo explico en español':'Segunda parte')+'</b><span>Así lo piden en el examen. Fíjate en el error típico.</span></div></div><article class="tarjeta entra"><span class="eti">Gramática '+(L.k+1)+' de '+u.gram.length+'</span><h2>'+esc(g.t)+'</h2><p class="idea">'+esc(g.idea)+'</p><div class="forma">'+g.forma.map(f=>'<div><span class="k">'+esc(f[0])+'</span><span class="v">'+esc(f[1])+'</span></div>').join("")+'</div><div class="ojo"><b>OJO</b><span>'+esc(g.ojo)+'</span></div></article>',
+   '<div class="pie-lec"><div class="in solo"><button class="btn ancho" id="sig">'+(L.k<u.gram.length-1?'Siguiente':'Entendido')+'</button></div></div>');
+  $("sig").onclick=()=>{SFX.tap();if(L.k<u.gram.length-1){L.k++;aprende();$("lec").scrollTop=0}else{UP(L.n).a=true;avanzarSig(L.n);ganar(10);pantallaFinal({mz:"mz-pulgar",t:"Explicación lista",p:"Sigue con el vocabulario de la unidad.",chips:[["XP","+10","var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]]});cierreDominio(L.n,L.antes)}};
+}
+function palabras(){
+  const u=L.u;if(!L.cola){L.cola=mezclar(u.voc.map((w,i)=>i));L.vistas=0}
+  const total=u.voc.length,w=u.voc[L.cola[0]];
+  marco(L.vistas/total,'<span class="eti">Palabra '+Math.min(L.vistas+1,total)+' de '+total+'</span><button class="fc entra" id="fc"><span class="fc-in"><span class="cara frente"><b>'+esc(w[0])+'</b><span class="oir" id="oir">'+icoOir+'Escuchar</span><span class="toca">Toca la tarjeta para ver el significado</span></span><span class="cara atras"><b>'+esc(w[1])+'</b><em>'+esc(w[2])+'</em></span></span></button>',
+   '<div class="pie-lec"><div class="in solo" style="grid-template-columns:1fr 1fr"><button class="btn sec" id="rep">Repasar</button><button class="btn menta" id="se">La sé</button></div></div>');
+  const fc=$("fc");fc.onclick=ev=>{if(ev.target.closest("#oir")){hablar(w[0]+". "+w[2]);return}fc.classList.toggle("vuelta");SFX.tap()};
+  setTimeout(()=>hablar(w[0]),250);
+  $("rep").onclick=()=>{L.cola.push(L.cola.shift());SFX.tap();palabras()};
+  $("se").onclick=()=>{L.cola.shift();L.vistas++;SFX.bien();if(!L.cola.length){UP(L.n).v=true;avanzarSig(L.n);ganar(10);pantallaFinal({mz:"mz-laptop",t:total+" palabras repasadas",p:"Ahora ponlas en práctica.",chips:[["XP","+10","var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]]});cierreDominio(L.n,L.antes)}else palabras()};
+}
+
+/* ---------- motor de preguntas ---------- */
+function registrar(e,ok){
+  const k=e._u+"-"+e._i;
+  if(!ok){P.err[k]=0}else if(k in P.err){P.err[k]++;if(P.err[k]>=2){delete P.err[k];P.corregidos++;L.corregidos=(L.corregidos||0)+1}}
+  guardar();
+}
+function pregunta(e,etiqueta){
+  if(!e._o&&e.k==="e")e._o=mezclar(e.o.map((t,j)=>({t,ok:j===e.a})));
+  if(!e._f&&e.k==="o")e._f=mezclar(e.s.split(" "));
+  const tipo={e:"Elige la correcta",c:"Escribe lo que falta",o:"Ordena la frase"}[e.k];
+  let h=(L.combo>=3?'<span class="combo entra"><img src="'+IMG("i-racha")+'" alt="">'+L.combo+' seguidas</span>':'')+((e._u+"-"+e._i) in P.err?'<span class="etiq-err">De tu cuaderno de errores</span>':'')+'<span class="eti">'+tipo+(etiqueta?' · '+etiqueta:'')+'</span>';
+  if(e.k==="e")h+='<p class="preg">'+esc(e.q).replace("___",'<mark>___</mark>')+'</p><div class="ops">'+e._o.map((x,j)=>'<button class="op" data-j="'+j+'" aria-pressed="'+(L.sel===j)+'"><span class="l">'+(j+1)+'</span>'+esc(x.t)+'</button>').join("")+'</div>';
+  if(e.k==="c")h+='<p class="preg">'+esc(e.q).replace(/___( ___)?/,'<mark>___</mark>')+'</p><input class="escribe" id="esc" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe aquí">';
+  if(e.k==="o")h+='<div class="respuesta">'+L.orden.map(k=>'<button class="ficha" data-quita="'+k+'">'+esc(e._f[k])+'</button>').join("")+'</div><div class="fichas">'+e._f.map((w,k)=>'<button class="ficha'+(L.orden.includes(k)?' usada':'')+'" data-k="'+k+'">'+esc(w)+'</button>').join("")+'</div>';
+  return h;
+}
+function enganchar(e,res){
+  const comp=$("comp");
+  if(e.k==="e"){comp.disabled=L.sel==null;document.querySelectorAll(".op").forEach(b=>b.onclick=()=>{if(L.estado!=="resp")return;SFX.tap();L.sel=+b.dataset.j;document.querySelectorAll(".op").forEach(x=>x.setAttribute("aria-pressed",x===b));comp.disabled=false})}
+  if(e.k==="c"){const inp=$("esc");comp.disabled=true;inp.oninput=()=>comp.disabled=!inp.value.trim();inp.onkeydown=ev=>{if(ev.key==="Enter"&&inp.value.trim()){ev.preventDefault();comp.click()}};setTimeout(()=>inp.focus(),60)}
+  if(e.k==="o"){comp.disabled=L.orden.length!==e._f.length;document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{if(L.estado!=="resp")return;SFX.tap();L.orden.push(+b.dataset.k);L.redibujar()});document.querySelectorAll("[data-quita]").forEach(b=>b.onclick=()=>{if(L.estado!=="resp")return;L.orden=L.orden.filter(k=>k!==+b.dataset.quita);L.redibujar()})}
+  comp.onclick=()=>{
+    if(L.estado==="hecho"){res(null);return}
+    let ok=false,correcta="";
+    if(e.k==="e"){ok=e._o[L.sel].ok;correcta=e.o[e.a];document.querySelectorAll(".op").forEach((b,j)=>{if(e._o[j].ok)b.classList.add("bien");else if(j===L.sel)b.classList.add("mal")})}
+    if(e.k==="c"){ok=e.a.some(a=>norm(a)===norm($("esc").value));correcta=e.a[0];$("esc").readOnly=true}
+    if(e.k==="o"){ok=norm(L.orden.map(k=>e._f[k]).join(" "))===norm(e.s);correcta=e.s}
+    L.estado="hecho";res({ok,correcta});
+  };
+}
+const piePregunta='<div class="pie-lec" id="pie"><div class="in solo" id="pieIn"><button class="btn ancho" id="comp">Comprobar</button></div></div>';
+function mostrar(r,e){
+  const pie=$("pie"),pin=$("pieIn");pie.classList.add(r.ok?"bien":"mal");pin.classList.remove("solo");
+  const enCuaderno=!r.ok?"Lo guardé en tu cuaderno de errores.":"";
+  const frases=["¡Bien! Así lo piden en el examen.","¡Exacto!","¡Correcto!","¡Muy bien!"];
+  pin.insertAdjacentHTML("afterbegin",'<img class="mz rebota" src="'+IMG(r.ok?(L.combo>=3?"mz-sorpresa":"mz-pulgar"):(Math.random()<.5?"mz-piensa":"mz-ups"))+'" alt=""><div class="msg"><b>'+(r.ok?frases[Math.floor(Math.random()*frases.length)]:'Casi. La correcta es:')+'</b>'+(r.ok?'':'<span class="ins">'+esc(r.correcta)+'</span>')+'<span>'+esc(e.y)+(enCuaderno?' '+enCuaderno:'')+'</span></div>');
+  const comp=$("comp");comp.textContent="Continuar";comp.className="btn ancho "+(r.ok?"menta":"rojo");comp.disabled=false;comp.focus();
+  if(r.ok)SFX.bien();else{SFX.mal();const t=document.querySelector(".preg,.respuesta");if(t){t.classList.remove("tiembla");void t.offsetWidth;t.classList.add("tiembla")}}
+}
+function sesion(lista,alTerminar,etiq){
+  L.lista=lista;L.p=0;L.ok=0;L.combo=0;L.maxCombo=0;L.xp=0;L.orden=[];
+  const sigP=()=>{
+    if(L.p>=L.lista.length)return alTerminar();
+    const e=L.lista[L.p];L.sel=null;L.estado="resp";
+    L.redibujar=()=>{const s=L.sel;marco(L.p/L.lista.length,pregunta(e,etiq?etiq(e):""),piePregunta);L.sel=s;enganchar(e,res)};
+    L.redibujar();
+    function res(r){if(!r){L.p++;L.orden=[];sigP();$("lec").scrollTop=0;return}
+      registrar(e,r.ok);if(r.ok){L.ok++;L.combo++;L.maxCombo=Math.max(L.maxCombo,L.combo);L.xp+=L.combo>=3?3:2}else L.combo=0;mostrar(r,e)}
+  };
+  sigP();
+}
+const conId=u=>u.ej.map((e,i)=>Object.assign({},e,{_u:u.n,_i:i}));
+
+function practica(){
+  sesion(mezclar(conId(L.u)),()=>{
+    const tot=L.lista.length,pct=L.ok/tot,up=UP(L.n);up.best=Math.max(up.best||0,pct);if(pct===1)up.perfecta=true;guardar();avanzarSig(L.n);ganar(L.xp+5);
+    pantallaFinal({mz:pct===1?"mz-amor":pct>=.6?"mz-celebra":"mz-triste",t:pct===1?"¡Práctica perfecta!":pct>=.6?"¡Práctica aprobada!":"Te falta un poco",p:pct>=.6?"Tu dominio de la unidad subió. Sigue con el reto de parejas.":"Necesitas 60% para pasar. Lo que fallaste quedó en Mis errores.",chips:[["Precisión",Math.round(pct*100)+"%","var(--menta)"],["Seguidas","x"+L.maxCombo,"var(--lila)"],["XP","+"+(L.xp+5),"var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]],confeti:pct>=.6});
+    cierreDominio(L.n,L.antes);
+  });
+}
+function abrirErrores(n){
+  const claves=Object.keys(P.err).filter(k=>n==null||+k.split("-")[0]===n);if(!claves.length)return;
+  const lista=mezclar(claves).slice(0,15).map(k=>{const [un,i]=k.split("-").map(Number);return Object.assign({},uni(un).ej[i],{_u:un,_i:i})});
+  L={tipo:"errores",corregidos:0};abrirLec();
+  sesion(lista,()=>{ganar(L.xp+5);const quedan=nErr(n);
+    pantallaFinal({mz:L.corregidos?"mz-celebra":"mz-piensa",t:L.corregidos?"¡Corregiste "+L.corregidos+(L.corregidos===1?" error!":" errores!"):"Sigue intentándolo",p:quedan?"Te quedan "+quedan+". Cada error sale cuando lo aciertas dos veces seguidas.":"¡Tu cuaderno de errores está vacío!",chips:[["Aciertos",L.ok+"/"+L.lista.length,"var(--menta)"],["XP","+"+(L.xp+5),"var(--sol-o)"]],confeti:!quedan});
+  },e=>"Unidad "+e._u);
+}
+function parejas(){
+  const u=L.u,items=mezclar(u.voc).slice(0,5);L.t0=Date.now();L.hechas=0;L.errores=0;let sel=null;
+  const izq=mezclar(items.map((w,i)=>({i,t:w[0],l:"en"}))),der=mezclar(items.map((w,i)=>({i,t:w[1],l:"es"})));const filas=[];for(let k=0;k<5;k++)filas.push(izq[k],der[k]);
+  marco(0,'<div style="display:flex;justify-content:space-between;align-items:center"><span class="eti">Une cada palabra con su significado</span><span class="cron" id="cron">0:00</span></div><div class="parejas">'+filas.map(x=>'<button class="par" data-i="'+x.i+'" data-l="'+x.l+'">'+esc(x.t)+'</button>').join("")+'</div>','');
+  L.cron=setInterval(()=>{const s=Math.floor((Date.now()-L.t0)/1000),c=$("cron");if(c)c.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0")},500);
+  document.querySelectorAll(".par").forEach(b=>b.onclick=()=>{
+    if(b.classList.contains("ok"))return;if(b.dataset.l==="en")hablar(b.textContent);
+    if(!sel||sel.dataset.l===b.dataset.l){if(sel)sel.setAttribute("aria-pressed","false");sel=b;b.setAttribute("aria-pressed","true");SFX.tap();return}
+    if(sel.dataset.i===b.dataset.i){[sel,b].forEach(x=>{x.classList.add("ok");x.setAttribute("aria-pressed","false")});SFX.bien();L.hechas++;document.querySelector(".pista i").style.width=(L.hechas/5*100)+"%";sel=null;if(L.hechas===5)setTimeout(finParejas,450)}
+    else{const a=sel;[a,b].forEach(x=>x.classList.add("mal","tiembla"));SFX.mal();L.errores++;setTimeout(()=>[a,b].forEach(x=>{x.classList.remove("mal","tiembla");x.setAttribute("aria-pressed","false")}),450);sel=null}
+  });
+}
+function finParejas(){
+  clearInterval(L.cron);const s=Math.round((Date.now()-L.t0)/1000),up=UP(L.n),rec=!up.reto||s<up.reto;if(rec)up.reto=s;guardar();avanzarSig(L.n);const xp=s<=30?15:10;ganar(xp);
+  pantallaFinal({mz:rec?"mz-sorpresa":"mz-celebra",t:rec?"¡Nuevo récord!":"¡Reto completado!",p:"Ahora practica hablando.",chips:[["Tiempo",s+" s","var(--azul)"],["Errores",L.errores,"var(--rojo)"],["XP","+"+xp,"var(--sol-o)"]],confeti:true});cierreDominio(L.n,L.antes);
+}
+function habla(){
+  const u=L.u;L.q=L.q||0;L.dichas=L.dichas||0;const q=u.habla[L.q%u.habla.length];let left=90,on=false;
+  marco(Math.min(1,L.dichas/2),'<div class="consejo entra"><img src="'+IMG("mz-hola")+'" alt=""><div class="bocadillo"><b>Responde en voz alta</b><span>Habla 90 segundos con la gramática de la unidad. Responde 2 preguntas.</span></div></div><div class="habla"><span class="eti">Pregunta '+(L.q%u.habla.length+1)+' de '+u.habla.length+'</span><h2>'+esc(q)+'</h2><div class="reloj"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="base" cx="50" cy="50" r="45"/><circle class="prog2" id="anilloR" cx="50" cy="50" r="45"/></svg><span class="t" id="rt">1:30</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="rb">Empezar</button><button class="btn" id="oir" style="--c:rgba(255,255,255,.18);--o:rgba(0,0,0,.18);color:var(--sobre)">Escuchar</button></div></div><div class="ayudas"><span class="eti">Usa en tu respuesta</span><ul>'+u.gram.map(x=>'<li><b>'+esc(x.t)+':</b> '+esc(x.forma[0][1])+'</li>').join("")+'<li><b>Palabras:</b> '+u.voc.slice(0,5).map(w=>esc(w[0])).join(", ")+'</li></ul></div>',
+   '<div class="pie-lec"><div class="in solo"><button class="btn lila ancho" id="ya">Ya respondí</button></div></div>');
+  const pinta=()=>{const t=$("rt"),a=$("anilloR"),b=$("rb");if(!t)return;t.textContent=Math.floor(left/60)+":"+String(left%60).padStart(2,"0");a.style.strokeDashoffset=String(283*(1-left/90));b.textContent=on?"Pausar":(left===0?"Otra vez":"Empezar")};
+  clearInterval(Rh);
+  $("rb").onclick=()=>{if(left===0)left=90;on=!on;clearInterval(Rh);if(on)Rh=setInterval(()=>{left=Math.max(0,left-1);if(!left){on=false;clearInterval(Rh);SFX.fin()}pinta()},1000);pinta()};
+  $("oir").onclick=()=>hablar(q);
+  $("ya").onclick=()=>{clearInterval(Rh);L.dichas++;L.q++;SFX.bien();if(L.dichas>=2){UP(L.n).h=true;guardar();avanzarSig(L.n);ganar(10);pantallaFinal({mz:"mz-celebra",t:"¡Bien dicho!",p:dominio(L.n)>=80?"Esta unidad ya está dominada.":"Sube tu práctica para dominar la unidad.",chips:[["XP","+10","var(--sol-o)"],["Dominio",dominio(L.n)+"%","var(--azul)"]],confeti:true});cierreDominio(L.n,L.antes)}else habla()};
+}
+function abrirPC(n){
+  const us=[uni(n-1),uni(n)];
+  L={pc:n,orden:[],combo:0,maxCombo:0,ok:0,p:0};abrirLec();
+  marco(0,'<div class="final"><img class="mz rebota" src="'+IMG("mz-sorpresa")+'" alt=""><h2>Progress check '+(n-1)+'–'+n+'</h2><p>90 segundos con preguntas de las dos unidades, como en el examen. Lo que falles va a tu cuaderno de errores.</p>'+(P.pc["pc"+n]!=null?'<div class="chips"><div class="dato" style="--c:var(--sol-o)"><span>Récord</span><b>'+P.pc["pc"+n]+'</b></div></div>':'')+'</div>','<div class="pie-lec"><div class="in solo"><button class="btn sol ancho" id="go">Empezar</button></div></div>');
+  $("go").onclick=()=>{L.fin=Date.now()+90000;L.cron=setInterval(()=>{const s=Math.max(0,Math.ceil((L.fin-Date.now())/1000)),c=$("cronPC");if(c)c.textContent=s+" s";if(!s){clearInterval(L.cron);finPC()}},250);
+    L.lista=mezclar(us.flatMap(conId));pcSig()};
+}
+function pcSig(){
+  if(L.terminado)return;if(L.p>=L.lista.length||Date.now()>=L.fin)return finPC();
+  const e=L.lista[L.p];L.sel=null;L.estado="resp";
+  L.redibujar=()=>{const s=L.sel;marco(Math.max(0,(L.fin-Date.now())/90000),'<div style="display:flex;justify-content:space-between"><span class="eti">Aciertos: '+L.ok+'</span><span class="cron" id="cronPC">'+Math.ceil((L.fin-Date.now())/1000)+' s</span></div>'+pregunta(e,"Unidad "+e._u),piePregunta);L.sel=s;enganchar(e,res)};
+  L.redibujar();
+  function res(r){if(!r){L.p++;L.orden=[];pcSig();return}registrar(e,r.ok);if(r.ok){L.ok++;L.combo++;L.maxCombo=Math.max(L.maxCombo,L.combo)}else L.combo=0;mostrar(r,e)}
+}
+function finPC(){
+  if(L.terminado)return;L.terminado=true;clearInterval(L.cron);
+  const k="pc"+L.pc,rec=P.pc[k]==null||L.ok>P.pc[k];if(rec)P.pc[k]=L.ok;const xp=10+L.ok*2;ganar(xp);
+  pantallaFinal({mz:rec&&L.ok?"mz-trofeo":"mz-celebra",t:rec&&L.ok?"¡Nuevo récord!":"¡Tiempo!",p:"Respondiste "+L.ok+" bien en 90 segundos. Bloque listo al "+listoBloque(L.pc/2)+"%.",chips:[["Aciertos",L.ok,"var(--menta)"],["Seguidas","x"+L.maxCombo,"var(--lila)"],["XP","+"+xp,"var(--sol-o)"]],confeti:L.ok>0});
+}
+document.addEventListener("keydown",ev=>{if($("lec").hidden)return;if(ev.key==="Escape")salir();if(/^[1-3]$/.test(ev.key)&&!ev.target.closest("input")){const b=document.querySelector('.op[data-j="'+(+ev.key-1)+'"]');b&&b.click()}});
+render();
+})();
+</script>
+
+</body>
+</html>
